@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/02/26 03:56:32 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/05 22:29:35 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,22 @@ int     main(int argc, char **argv)
     void    *win;
     int     fd;
     t_map   *map;
-    t_point *point;
+    t_point3 *point;
    
-    if (argc != 2)
-        exit(0);
-    if ((fd = open(argv[1], O_RDONLY)) == -1)
-        exit(0);
-    if (!(mlx = mlx_init()))
-        exit(0);
-    if (!(win = win_init(mlx, 500, 500, "FdF")))
-        exit(0);
-    if (!(map = get_map(fd)))
-        exit(0);
-    int i = 0;
+    if ((argc != 2) ||
+		((fd = open(argv[1], O_RDONLY)) == -1) || (!(mlx = mlx_init())) ||
+		(!(win = win_init(mlx, 500, 500, "FdF"))) || (!(map = get_map(fd))))
+		exit(0);
+
+    int i = -1;
     //printf("%zu\n", map->len);
-    /*while (i < map->len)
+    /*while (++i < map->len)
     {
         point = map->points[i];
         printf("%d\t%d\t%d\n", point->x, point->y, point->z);
-        i++;
     }*/
-    //draw_line(mlx, win, line(points[0], points[17]));
+
+    draw_line(mlx, win, p_line(p_point3(500, 100, 0), p_point3(500, 200, 0)));
     
     mlx_loop(mlx);
     

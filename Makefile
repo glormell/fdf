@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/02/25 02:06:42 by glormell         ###   ########.fr        #
+#    Updated: 2019/03/03 20:20:38 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,16 @@ SRC = $(CFILES)
 
 OBJS = $(OFILES)
 
-INCLUDE = includes -lm -lft -lmlx -lXext -lX11
+INCLUDE = includes
+
+LIB = . -lm -lft -lmlx
 
 FRAMEWORKS = -framework OpenGL -framework AppKit
 
 CFLAGS = #-Wall -Wextra -Werror
 
 $(NAME):
-	gcc $(CFLAGS) $(CFILES) -o $(NAME) -I $(INCLUDE) $(FRAMEWORKS)
+	gcc $(CFLAGS) $(CFILES) -o $(NAME) -I $(INCLUDE) -L $(LIB) $(FRAMEWORKS)
 
 all: $(NAME)
 
