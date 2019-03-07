@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 17:39:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/03 21:43:09 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/07 04:13:23 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_point3        **pt_lst(char *line, size_t len, int *y)
 {
     char        *l;
     int         i;
-    t_point3     **points;
+    t_point3    **points;
     char        *z;
     char        *digit;
     
@@ -73,7 +73,10 @@ t_point3        **pt_lst(char *line, size_t len, int *y)
         else
             ++l;
     if (digit)
+    {
+        z = ft_strsub(line, digit - line, l++ - digit);
         points[i] = p_point3(i, *y, ft_atoi(z));
+    }
     ++*y;
     return (points);
 }
@@ -110,12 +113,13 @@ t_map           *get_map(const int fd)
             points = pt_lst(line, len, &y);
             map = p_map(points, len * y);
         }
-        else if (y == 1)
+        else if (y >= 1)
         {
             points = pt_lst(line, len, &y);
             map->points = pt_cat(map->points, points, len);
             map->len = len * y;
         }
     }
+    printf("y: %d\n", y);
     return (map);
 }

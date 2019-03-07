@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 02:48:28 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/05 22:26:46 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/07 03:27:27 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,46 @@ static t_point2	*iso(t_point3 *p)
 }
 
 void            draw_line(void *mlx, void *win, t_line *l)
+{
+    t_point2    *s;
+    t_point2    *e;
+    t_point2    *d;
+    t_point2    *r;
+    int         p;
+ 
+    s = iso(l->s);
+    e = iso(l->e);
+
+    //printf("%d\t%d\t%d\n", l->s->x, l->s->y, l->s->z);
+    //printf("%d\t%d\n\n", s->x, s->y);
+    //printf("%d\t%d\t%d\n", l->e->x, l->e->y, l->e->z);
+    //printf("%d\t%d\n", e->x, e->y);
+
+    //mlx_pixel_put(mlx, win, s->x * 40, s->y * 40, rgba(0, 255, 255, 1));
+
+    /*d = p_point2(s->x - s->x, e->y - s->y);
+    r = p_point2(s->x, s->y);
+ 
+	p = 2 * d->y - d->x;
+ 
+	while (r->x < e->x)
+	{
+		if (p >= 0)
+		{
+            mlx_pixel_put(mlx, win, r->x, r->y, rgba(255, 255, 255, 1));
+			r->y = r->y + 1;
+			p = p + 2 * d->y - 2 * d->x;
+		}
+		else
+		{
+            mlx_pixel_put(mlx, win, r->x, r->y, rgba(255, 255, 255, 1));
+			p = p + 2 * d->y;
+		}
+		r->x = r->x + 1;
+	}*/
+}
+
+void            _draw_line(void *mlx, void *win, t_line *l)
 {
     t_point2    *d;
     t_point2    *s;
