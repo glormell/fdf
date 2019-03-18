@@ -6,57 +6,58 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 17:39:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/07 04:13:23 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/18 00:57:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "input.h"
 
-t_map       *p_map(t_point3 **points, size_t len)
+t_map       *p_map(int *points, size_t width, size_t height)
 {
     t_map   *map;
 
     if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
         return (NULL);
     map->points = points;
-    map->len = len;
+    map->width = width;
+    map->height = height;
     return (map);
 }
 
-size_t          x_len(char *line)
+size_t          x_width(char *line)
 {
-    size_t      len;
+    size_t      width;
     char        *digit;
 
-    len = 0;
+    width = 0;
     digit = 0;
     while (*line)
-        if (!(ft_isdigit(*line) || ft_isspace(*line)))
+        if (!(ft_isdigit(*line) || ft_isspace(*line) || *line == '-'))
             perror("Forbidden symbol in map");
         else if (ft_isdigit(*line) && !digit)
             digit = line++;
         else if (ft_isspace(*line) && digit)
         {
             digit = 0;
-            ++len;
+            ++width;
             ++line;
         }
         else
             ++line;
-    return (digit ? len + 1 : len);
+    return (digit ? width + 1 : width);
 }
 
-t_point3        **pt_lst(char *line, size_t len, int *y)
+int        *pt_lst(char *line, size_t width)
 {
     char        *l;
     int         i;
-    t_point3    **points;
+    int         *points;
     char        *z;
     char        *digit;
     
     l = line;
-    if (!(points = (t_point3 **)ft_memalloc(sizeof(t_point3 *) * len)))
+    if (!(points = (int *)ft_memalloc(sizeof(int *) * width)))
         perror("Memory allocation failed");
     i = 0;
     digit = 0;
@@ -66,7 +67,7 @@ t_point3        **pt_lst(char *line, size_t len, int *y)
         else if ((ft_isspace(*l) || !*l) && digit)
         {
             z = ft_strsub(line, digit - line, l++ - digit);
-            points[i] = p_point3(i, *y, ft_atoi(z));
+            points[i] = ft_atoi(z);
             digit = 0;
             i++;
         }
@@ -75,23 +76,20 @@ t_point3        **pt_lst(char *line, size_t len, int *y)
     if (digit)
     {
         z = ft_strsub(line, digit - line, l++ - digit);
-        points[i] = p_point3(i, *y, ft_atoi(z));
+        points[i] = ft_atoi(z);
     }
-    ++*y;
     return (points);
 }
 
-t_point3         **pt_cat(t_point3 **p1, t_point3 **p2, size_t len)
+int     *pt_cat(int *p1, int *p2, size_t width, size_t height)
 {
-    int         i;
-	int			j;
-    t_point3     **r;
+    int         *r;
 
-    if (!(r = ft_memalloc(sizeof(*p1) * len * 2)))
+    if (!(r = ft_memalloc(sizeof(int) * width * height)))
         return (NULL);
 
-	ft_memcpy(r, p1, sizeof(*r) * len);
-	ft_memcpy(r + len, p2, sizeof(*r) * len);
+	ft_memcpy(r, p1, sizeof(int) * width * (height - 1));
+	ft_memcpy(r + width * (height - 1), p2, sizeof(int) * width);
 
     return (r);
 }
@@ -99,27 +97,24 @@ t_point3         **pt_cat(t_point3 **p1, t_point3 **p2, size_t len)
 t_map           *get_map(const int fd)
 {
     char        *line;
-    t_point3     **points;
-    size_t      len;
-    int         y;
+    int         *points;
+    size_t      width;
+    int         height;
     t_map       *map;
 
-    y = 0;
+    height = 0;
     while (get_next_line(fd, &line))
     {
-        len = x_len(line);
-        if (!y)
+        ++height;
+        width = x_width(line);
+        points = pt_lst(line, width);
+        if (height == 1)
+            map = p_map(points, width, height);
+        else if (height > 1)
         {
-            points = pt_lst(line, len, &y);
-            map = p_map(points, len * y);
-        }
-        else if (y >= 1)
-        {
-            points = pt_lst(line, len, &y);
-            map->points = pt_cat(map->points, points, len);
-            map->len = len * y;
+            map->points = pt_cat(map->points, points, width, height);
+            map->height = height;
         }
     }
-    printf("y: %d\n", y);
     return (map);
 }

@@ -1,4 +1,5 @@
 /* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,7 +7,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/07 04:17:50 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/17 16:57:51 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +20,29 @@ int     main(int argc, char **argv)
     void    *win;
     int     fd;
     t_map   *map;
-    t_point3 *point;
    
     if ((argc != 2) ||
 		((fd = open(argv[1], O_RDONLY)) == -1) || (!(mlx = mlx_init())) ||
-		(!(win = win_init(mlx, 1500, 1100, "FdF"))) || (!(map = get_map(fd))))
+		(!(win = win_init(mlx, 1000, 700, "FdF"))) || (!(map = get_map(fd))))
 		exit(0);
 
     int i = -1;
-    printf("%zu\n", map->len);
-    while (++i < map->len)
+    int t = 5;
+    while (++i < map->width * map->height)
     {
-        t_point3  *p = map->points[i];
-        printf("%d. %d:%d:%d\n", i, p->x, p->y, p->z);
-        //draw_line(mlx, win, p_line(p, p));
+        if ((i + 1) % map->width != 0)
+            draw_line(mlx, win, p_line(
+                p_point3(i * t, (i + 1) / map->width * t, map->points[i] * t), 
+                p_point3((i + 1) * t, (i + 1) / map->width * t, map->points[i + 1] * t))
+            );
+        if ((i + 1) / map->width < map->height - 1)
+            draw_line(mlx, win, p_line(
+                p_point3(i * t, (i + 1) / map->width * t, map->points[i] * t), 
+                p_point3((i + map->width) * t, ((i + 1) / map->width + 1) * t, map->points[i + map->width] * t))
+            );
     }
 
-    mlx_pixel_put(mlx, win, 750, 550, rgba(0, 255, 255, 1));
-    //draw_line(mlx, win, p_line(p_point3(0, 0, 0), p_point3(100, 100, 0)));
+    draw_line(mlx, win, p_line(p_point3(0, 0, 0), p_point3(100, 100, 100)));
     
     mlx_loop(mlx);
     
