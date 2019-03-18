@@ -27,22 +27,49 @@ int     main(int argc, char **argv)
 		exit(0);
 
     int i = -1;
-    int t = 5;
+    int t = 10;
     while (++i < map->width * map->height)
     {
         if ((i + 1) % map->width != 0)
-            draw_line(mlx, win, p_line(
-                p_point3(i * t, (i + 1) / map->width * t, map->points[i] * t), 
-                p_point3((i + 1) * t, (i + 1) / map->width * t, map->points[i + 1] * t))
-            );
-        if ((i + 1) / map->width < map->height - 1)
-            draw_line(mlx, win, p_line(
-                p_point3(i * t, (i + 1) / map->width * t, map->points[i] * t), 
-                p_point3((i + map->width) * t, ((i + 1) / map->width + 1) * t, map->points[i + map->width] * t))
-            );
-    }
+		{
+			t_point3 *s = p_point3(
+					i % map->width * t,
+					(i + 1) / map->width * t,
+					map->points[i]
+			);
 
-    draw_line(mlx, win, p_line(p_point3(0, 0, 0), p_point3(100, 100, 100)));
+			t_point3 *e = p_point3(
+					(i + 1) % map->width * t,
+					(i + 1) / map->width * t,
+					map->points[i + 1]
+			);
+
+			printf("%3d %3d %3d\t", s->x, s->y, s->z);
+			printf("%3d %3d %3d\n", e->x, e->y, e->z);
+
+            draw_line(mlx, win, p_line(s, e));
+		}
+        if (i / map->width < map->height - 1)
+		{
+
+			t_point3 *s = p_point3(
+					i % map->width * t,
+					i / map->width * t,
+					map->points[i]
+			);
+
+			t_point3 *e = p_point3(
+					i % map->width * t,
+					(i / map->width + 1) * t,
+					map->points[i + map->width]
+			);
+
+			printf("%3d %3d %3d\t", s->x, s->y, s->z);
+			printf("%3d %3d %3d\n", e->x, e->y, e->z);
+
+            draw_line(mlx, win, p_line(s, e));
+		}
+    }
     
     mlx_loop(mlx);
     

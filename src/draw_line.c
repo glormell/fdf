@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 02:48:28 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/18 13:57:26 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/18 23:36:59 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,61 +197,21 @@ void            draw_line(void *mlx, void *win, t_line *l)
     g_mlx = mlx;
     g_win = win;
 
-    float angle = 0.523599;
-    s = iso(rotate(l->s, 0/*.523599*/, angle/*.523599*/, 0));
-    e = iso(rotate(l->e, 0/*.523599*/, angle/*.523599*/, 0));
+    //s = rotate(l->s, 0, 0, 0);
+    //e = rotate(l->e, 0, 0, 0);
     
     //s = iso2(l->s, p_point2(150, 350));
     //e = iso2(l->e, p_point2(150, 350));
     
-    draw_wu(s->x, s->y, e->x, e->y);
-    /*drawPixel(100, 100, 1);
-    drawPixel(101, 100, 0.9);
-    drawPixel(102, 100, 0.8);
-    drawPixel(103, 100, 0.7);
-    drawPixel(104, 100, 0.6);
-    drawPixel(105, 100, 0.5);
-    drawPixel(106, 100, 0.4);
-    drawPixel(107, 100, 0.3);
-    drawPixel(108, 100, 0.2);
-    drawPixel(109, 100, 0.1);
-    drawPixel(110, 100, 0);*/
-}
+	//printf("%d %d %d\n", l->s->x, l->s->y, l->s->z);
+	//printf("%d %d %d\n\n", l->e->x, l->e->y, l->e->z);
+	
+	
+			//printf("%3d %3d %3d\t", l->s->x, l->s->y, l->s->z);
+			//printf("%3d %3d %3d\n", l->e->x, l->e->y, l->e->z);
 
-void            _draw_line(void *mlx, void *win, t_line *l)
-{
-    t_point2    *d;
-    t_point2    *s;
-    t_point2    *e;
-    double      g;
-    double      i;
-    double      intpart;
-    double      f;
+	s = iso(l->s);
+	e = iso(l->e);
 
-    s = iso(rotate(l->s, 30, 30, 30));
-    e = iso(rotate(l->e, 30, 30, 30));
-
-    //printf("%d\t%d\t%d\n", l->s->x, l->s->y, l->s->z);
-    //printf("%d\t%d\n\n", s->x, s->y);
-    //printf("%d\t%d\t%d\n", l->e->x, l->e->y, l->e->z);
-    //printf("%d\t%d\n", e->x, e->y);
-
-    d = p_point2(s->x - e->x, s->y - e->y);
-    d->x = (int)fabs((double)d->x);
-    d->y = (int)fabs((double)d->y);
-    g = d->x / d->y;
-    mlx_pixel_put(mlx, win, s->x, s->y, rgba(255, 255, 255, 0.5));
-    mlx_pixel_put(mlx, win, s->x, s->y + 1, rgba(255, 255, 255, 0));
-    i = s->y + g;
-    mlx_pixel_put(mlx, win, e->x, e->y, rgba(255, 255, 255, 0.5));
-    mlx_pixel_put(mlx, win, e->x, e->y + 1, rgba(255, 255, 255, 0));
-    d->x = s->x + 1;
-    while (d->x < e->x)
-    {
-        f = modf(i, &intpart);
-        mlx_pixel_put(mlx, win, d->x, (int)i, rgba(255, 255, 255, 1 - f));
-        mlx_pixel_put(mlx, win, d->x, (int)i + 1, rgba(255, 255, 255, f));
-        i += g;
-        ++d->x;
-    }
+    draw_wu(s->x + 150, s->y + 150, e->x + 150, e->y + 150);
 }
