@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:08:55 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "map/map.h"
 
-int     main(int argc, char **argv)
+t_map       *p_map(int *points, size_t width, size_t height)
 {
-    int     fd;
-	t_fdf	*fdf;
+    t_map   *map;
 
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
+    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
+        return (NULL);
+    map->points = points;
+    map->width = width;
+    map->height = height;
+    return (map);
 }

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgba.c                                             :+:      :+:    :+:   */
+/*   rotate.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 05:07:05 by glormell          #+#    #+#             */
-/*   Updated: 2019/02/25 05:09:54 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:59:36 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:05:27 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rgba.h"
+#ifndef ROTATE_H
+#define ROTATE_H
+#include <math.h>
+#include "map/point.h"
 
-int         rgba(int red, int green, int blue, float alpha)
-{
-    float   alphaRed;
-    float   alphaGreen;
-    float   alphaBlue;
-
-    alphaRed = red * alpha;
-    alphaGreen = green * alpha;
-    alphaBlue = blue * alpha;
-
-    red = (int)floor(alphaRed) << 16;
-    green = (int)floor(alphaGreen) << 8;
-    blue = (int)floor(alphaBlue);
-
-    return (red + green + blue);
-}
+t_point3        *rotate_x(t_point3 *p, float angle);
+t_point3        *rotate_y(t_point3 *p, float angle);
+t_point3        *rotate_z(t_point3 *p, float angle);
+t_point3        *rotate(t_point3 *p, float x, float y, float z);
+#endif

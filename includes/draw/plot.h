@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   plot.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:51:56 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 22:39:26 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef PLOT_H
+#define PLOT_H
+#include <math.h>
+#include <mlx.h>
+#include "map/point.h"
+#include "map/line.h"
+#include "draw/rgba.h"
+#include "fdf.h"
 
-int     main(int argc, char **argv)
-{
-    int     fd;
-	t_fdf	*fdf;
-
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
-}
+void	plot(t_fdf *fdf, t_line *l);
+#endif

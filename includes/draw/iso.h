@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   iso.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 19:04:44 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:04:58 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef ISO_H
+#define ISO_H
+#include <math.h>
+#include "map/point.h"
 
-int     main(int argc, char **argv)
-{
-    int     fd;
-	t_fdf	*fdf;
+t_point3	    *iso(t_point3 *p);
 
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
-}
+#endif

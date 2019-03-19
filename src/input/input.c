@@ -6,24 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 17:39:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/18 00:57:28 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/19 20:08:09 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "input.h"
+#include "input/input.h"
 
-t_map       *p_map(int *points, size_t width, size_t height)
-{
-    t_map   *map;
-
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-    map->points = points;
-    map->width = width;
-    map->height = height;
-    return (map);
-}
 
 size_t          x_width(char *line)
 {

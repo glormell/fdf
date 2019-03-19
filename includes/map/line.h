@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   line.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 19:15:32 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:06:27 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef LINE_H
+#define LINE_H
+#include "map/point.h"
 
-int     main(int argc, char **argv)
+typedef struct  s_line
 {
-    int     fd;
-	t_fdf	*fdf;
+	t_point3    *s;
+	t_point3    *e;
+}               t_line;
 
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
-}
+
+t_line          *p_line(t_point3 *start, t_point3 *end);
+t_line          line(t_point3 *start, t_point3 *end);
+
+#endif

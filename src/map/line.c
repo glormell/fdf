@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 19:13:50 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:08:38 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "map/line.h"
 
-int     main(int argc, char **argv)
+t_line		*p_line(t_point3 *start, t_point3 *end)
 {
-    int     fd;
-	t_fdf	*fdf;
+    t_line	*line;
 
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
+    if (!(line = (t_line *)ft_memalloc(sizeof(t_line))))
+        return (NULL);
+    line->s = start;
+    line->e = end;
+    return (line);
+}
+
+t_line      line(t_point3 *start, t_point3 *end)
+{
+    return (t_line){ start, end };
 }

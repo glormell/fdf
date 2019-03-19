@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.h                                            :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 18:14:05 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/17 17:49:58 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:46:40 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 21:13:10 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_H
-#define INPUT_H
-#include <stdlib.h>
-#include "libft.h"
-#include "get_next_line.h"
-#include "point.h"
-#define ft_isspace(c)	((c) == ' ' || ((c) >= '\t' && (c) <= '\r'))
+#ifndef FDF_H
+#define FDF_H
+#include <mlx.h>
+#include "window.h"
+#include "map/map.h"
+#include "input/input.h"
 
-typedef struct  s_map
+typedef struct	s_fdf
 {
-    int         *points;
-    size_t      width;
-    size_t      height;
-}               t_map;
+	void		*mlx;
+	void		*win;
+	t_map		*map;
+}				t_fdf;
 
-t_map           *get_map(const int fd);
+t_fdf	*p_fdf(int fd);
+
 #endif

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 20:57:11 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 21:17:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "fdf.h"
 
-int     main(int argc, char **argv)
+t_fdf		*p_fdf(int fd)
 {
-    int     fd;
 	t_fdf	*fdf;
-
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
+ 
+    if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
+        return (NULL);
+    if ((!(fdf->mlx = mlx_init())) ||
+		(!(fdf->win = win_init(fdf->mlx, 1000, 1000, "FdF"))) ||
+		(!(fdf->map = get_map(fd))))
 		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
+	return (fdf);
 }

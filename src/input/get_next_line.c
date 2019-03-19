@@ -6,11 +6,11 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 15:31:36 by glormell          #+#    #+#             */
-/*   Updated: 2018/12/10 20:35:15 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/19 20:08:24 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "input/get_next_line.h"
 
 t_list	*get_cl(t_list **lfd, const int fd)
 {

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/02/25 02:48:28 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 22:39:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#include "draw/draw_line.h"
 
-int     main(int argc, char **argv)
+void            draw_line(t_fdf *fdf, t_line *l)
 {
-    int     fd;
-	t_fdf	*fdf;
+    t_line		*iso_l;
 
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
+	iso_l = p_line(iso(l->s), iso(l->e));
+	iso_l->s->x += 150;
+	iso_l->e->x += 150;
+	iso_l->s->y += 50;
+	iso_l->e->y += 50;
+	plot(fdf, iso_l);
 }

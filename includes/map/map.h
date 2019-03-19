@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgba.h                                             :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 05:05:59 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/17 21:35:08 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:49:10 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 18:57:40 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RGBA_H
-#define RGBA_H
-#include <math.h>
+#ifndef MAP_H
+#define MAP_H
+#include <stdio.h>
+#include "libft.h"
 
-int     rgba(int red, int green, int blue, float alpha);
+typedef struct  s_map
+{
+    int         *points;
+    size_t      width;
+    size_t      height;
+}               t_map;
+
+t_map       *p_map(int *points, size_t width, size_t height);
+
 #endif

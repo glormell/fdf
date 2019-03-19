@@ -6,13 +6,13 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/03/03 20:20:38 by glormell         ###   ########.fr        #
+#    Updated: 2019/03/19 20:03:26 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-CFILES = src/*.c
+CFILES = src/*.c src/*/*.c
 
 OFILES = $(CFILES:.c=.o)
 

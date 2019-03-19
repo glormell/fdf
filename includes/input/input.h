@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   input.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:06:32 by glormell         ###   ########.fr       */
+/*   Created: 2019/02/25 18:14:05 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/19 20:05:55 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef INPUT_H
+#define INPUT_H
+#include <stdlib.h>
+#include "libft.h"
+#include "input/get_next_line.h"
+#include "map/point.h"
+#include "map/map.h"
+#define ft_isspace(c)	((c) == ' ' || ((c) >= '\t' && (c) <= '\r'))
 
-int     main(int argc, char **argv)
-{
-    int     fd;
-	t_fdf	*fdf;
-
-	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-		!(fdf = p_fdf(fd)))
-		exit(0);
-    draw_map(fdf);
-    mlx_loop(fdf->mlx);
-    
-    return (0);
-}
+t_map           *get_map(const int fd);
+#endif
