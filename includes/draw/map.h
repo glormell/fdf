@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   draw_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 22:55:52 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:00:32 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef DRAW_MAP_H
+#define DRAW_MAP_H
+#include "core/t_fdf.h"
+#include "core/fdf.h"
+#include "map/point.h"
+#include "draw/line.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
-
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+void	draw_map(void *param, int clr);
+#endif

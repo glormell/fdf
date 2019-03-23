@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 18:51:56 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 22:39:26 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/23 22:02:23 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "map/point.h"
 #include "map/line.h"
 #include "draw/rgba.h"
-#include "fdf.h"
+#include "core/fdf.h"
 
-void	plot(t_fdf *fdf, t_line *l);
+void	plot(t_fdf *fdf, t_line *l, int clr);
 #endif

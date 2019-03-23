@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.h                                         :+:      :+:    :+:   */
+/*   center.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 22:55:52 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 23:02:17 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 19:11:08 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 21:23:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_MAP_H
-#define DRAW_MAP_H
-#include "fdf.h"
-#include "map/point.h"
-#include "draw/draw_line.h"
+#include "draw/center.h"
 
-void	draw_map(t_fdf *fdf);
-#endif
+t_point3		*center(int w, int h)
+{
+	t_point3	*t;
+	t_point2	s;
+
+	s = point2(1000, 1000);
+
+	t = p_point3(
+		(s.x - (w - 1) * (s.x * 0.8) / (((w > h) ? w : h) - 1)) / 2,
+		(s.y - (h - 1) * (s.y * 0.8) / (((w > h) ? w : h) - 1)) / 2,
+		(s.y * 0.8) / (((w > h) ? w : h) - 1)
+	);
+
+	return (t);
+}

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   proj.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 14:52:07 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 15:13:12 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#include "draw/proj.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
+t_point3	*proj(t_point3 *p)
 {
-	t_map	*map;
+	t_point3	*n;
 
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
+	n = p_point3(
+		p->x,//(p->x - p->y) * cos(1 * M_PI / 180),
+		p->y,//(p->x + p->y) * sin(1 * M_PI / 180) - p->z,
+		0
+	);
+
+	return (n);
 }

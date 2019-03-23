@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   center.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 19:24:38 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 19:26:10 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef CENTER_H
+#define CENTER_H
+#include "map/point.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
+t_point3		*center(int w, int h);
 
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+#endif

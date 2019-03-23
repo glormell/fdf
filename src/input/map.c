@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   src.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 17:39:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 20:08:09 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 20:39:25 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 21:20:00 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "input/input.h"
+#include "input/map.h"
 
 
 size_t          x_width(char *line)
@@ -83,27 +82,28 @@ int     *pt_cat(int *p1, int *p2, size_t width, size_t height)
     return (r);
 }
 
-t_map           *get_map(const int fd)
+int				map_init(t_fdf *fdf, const int fd)
 {
-    char        *line;
-    int         *points;
-    size_t      width;
-    int         height;
-    t_map       *map;
+	char		*line;
+	int			*points;
+	size_t		width;
+	int			height;
 
     height = 0;
     while (get_next_line(fd, &line))
     {
-        ++height;
-        width = x_width(line);
-        points = pt_lst(line, width);
-        if (height == 1)
-            map = p_map(points, width, height);
-        else if (height > 1)
-        {
-            map->points = pt_cat(map->points, points, width, height);
-            map->height = height;
-        }
-    }
-    return (map);
+		++height;
+		width = x_width(line);
+		points = pt_lst(line, width);
+		if (height == 1 && !(fdf->map = p_map(points, width, height)))
+			return (0);
+		else if (height > 1)
+		{
+			fdf->map->points = pt_cat(fdf->map->points, points, width, height);
+			fdf->map->height = height;
+		}
+	}
+	fdf->t = center(fdf->map->width, fdf->map->height);
+	fdf->draw_map = &draw_map;
+	return (1);
 }

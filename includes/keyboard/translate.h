@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   translate.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 20:47:44 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:45:32 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef TRANSLATE_H
+#define TRANSLATE_H
+#include <stdlib.h>
+#include "core/t_fdf.h"
+#include "draw/rgba.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
+int		translate(int x, int y, void *param);
+int		left_hook(void *param);
+int		right_hook(void *param);
+int		top_hook(void *param);
+int		bottom_hook(void *param);
 
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+#endif

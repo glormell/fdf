@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 18:44:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 22:39:02 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/23 22:02:11 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/plot.h"
 
-void			plot(t_fdf *fdf, t_line *l)
+void			plot(t_fdf *fdf, t_line *l, int clr)
 {
 	t_point2	delta;
 	t_point2	sign;
@@ -21,11 +21,11 @@ void			plot(t_fdf *fdf, t_line *l)
 	delta = point2(fabs(l->s->x - l->e->x), fabs(l->s->y - l->e->y));
 	sign = point2(l->s->x < l->e->x ? 1 : -1, l->s->y < l->e->y ? 1 : -1);
 	error = point2(delta.x - delta.y, 0);
-	while ((sign.x == 1 && l->s->x <= l->e->x) || (sign.x == -1 &&
-			l->s->x >= l->e->x) || (sign.y == 1 && l->s->y <= l->e->y) ||
-			(sign.y == -1 && l->s->y >= l->e->y))
+	while ((sign.x == 1 && l->s->x < l->e->x) || (sign.x == -1 &&
+			l->s->x > l->e->x) || (sign.y == 1 && l->s->y < l->e->y) ||
+			(sign.y == -1 && l->s->y > l->e->y))
 	{
-		mlx_pixel_put(fdf->mlx, fdf->win, l->s->x, l->s->y, white());
+		mlx_pixel_put(fdf->mlx, fdf->win, l->s->x, l->s->y, clr);
 		error.y = error.x * 2;
 		if (error.y > -delta.y)
 		{
@@ -38,4 +38,5 @@ void			plot(t_fdf *fdf, t_line *l)
 			l->s->y += sign.y;
 		}
 	}
+	mlx_pixel_put(fdf->mlx, fdf->win, l->e->x, l->e->y, clr);
 }

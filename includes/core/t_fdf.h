@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.h                                        :+:      :+:    :+:   */
+/*   t_fdf.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 02:48:52 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 21:19:21 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:02:42 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_LINE_H
-#define DRAW_LINE_H
-#include <mlx.h>
+#ifndef T_FDF_H
+#define T_FDF_H
 #include "map/point.h"
-#include "map/line.h"
-#include "fdf.h"
-#include "draw/iso.h"
-#include "draw/rgba.h"
-#include "draw/plot.h"
+#include "map/map.h"
 
-t_point2	*convert(t_point3 *point, t_point3 *camera, t_point3 *rotate);
-void		draw_line(t_fdf *fdf, t_line *l);
+typedef struct	s_fdf
+{
+	void		*mlx;
+	void		*win;
+	t_map		*map;
+	t_point3	*t;
+	void		(*draw_map)(void *, int);
+}				t_fdf;
+
 #endif

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 20:57:11 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:02:58 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#include "core/fdf.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
+t_fdf		*p_fdf(int fd)
 {
-	t_map	*map;
-
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
+	t_fdf	*fdf;
+ 
+    if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
         return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
+    if ((!(fdf->mlx = mlx_init())) ||
+		(!(win_init(fdf, 1000, 1000, "FdF"))) ||
+		(!(map_init(fdf, fd))))
+		exit(0);
+	fdf->draw_map(fdf, white());
+	return (fdf);
 }

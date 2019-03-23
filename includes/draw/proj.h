@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   proj.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/23 14:56:44 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 14:57:13 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef PROJ_H
+#define PROJ_H
+#include <math.h>
+#include "map/point.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
+t_point3	    *proj(t_point3 *p);
 
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+#endif

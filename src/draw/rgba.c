@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 05:07:05 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 20:48:41 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/23 22:05:18 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,10 @@ int         rgba(int red, int green, int blue, float alpha)
 
 int			white()
 {
-	return rgba(255, 255, 255, 1);
+	return (rgba(255, 255, 255, 1));
+}
+
+int			clear()
+{
+	return (rgba(0, 0, 0, 1));
 }

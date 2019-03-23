@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 02:48:28 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 22:39:45 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/19 18:46:40 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 20:39:43 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw/draw_line.h"
+#ifndef FDF_H
+#define FDF_H
+#include <mlx.h>
+#include "core/t_fdf.h"
+#include "core/window.h"
+#include "map/map.h"
+#include "input/map.h"
 
-void            draw_line(t_fdf *fdf, t_line *l)
-{
-    t_line		*iso_l;
+t_fdf	*p_fdf(int fd);
 
-	iso_l = p_line(iso(l->s), iso(l->e));
-	iso_l->s->x += 150;
-	iso_l->e->x += 150;
-	iso_l->s->y += 50;
-	iso_l->e->y += 50;
-	plot(fdf, iso_l);
-}
+#endif

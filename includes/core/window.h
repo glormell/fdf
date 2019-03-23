@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   window.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/02/24 23:02:10 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:43:36 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef WINDOW_H
+#define WINDOW_H
+#include <stdlib.h>
+#include <mlx.h>
+#include "core/t_fdf.h"
+#include "keyboard/close.h"
+#include "keyboard/translate.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
+int		key_hook(int key, void *param);
+int		win_init(t_fdf *fdf, int width, int height, char *title);
 
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+#endif

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   draw_line.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 18:53:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 20:04:53 by glormell         ###   ########.fr       */
+/*   Created: 2019/02/25 02:48:52 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/23 22:01:04 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map/map.h"
+#ifndef DRAW_LINE_H
+#define DRAW_LINE_H
+#include <mlx.h>
+#include "map/point.h"
+#include "map/line.h"
+#include "core/fdf.h"
+#include "draw/iso.h"
+#include "draw/proj.h"
+#include "draw/rgba.h"
+#include "draw/plot.h"
 
-t_map		*p_map(int *points, size_t width, size_t height)
-{
-	t_map	*map;
-
-    if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
-        return (NULL);
-	map->points = points;
-	map->width = width;
-	map->height = height;
-	return (map);
-}
+t_point2	*convert(t_point3 *point, t_point3 *camera, t_point3 *rotate);
+void		draw_line(t_fdf *fdf, t_line *l, int clr);
+#endif
