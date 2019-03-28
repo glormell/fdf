@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 20:48:13 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 22:45:19 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/27 14:06:09 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ int					translate(int x, int y, void *param)
 	return (1);
 }
 
-int					left_hook(void *param)
+int					left_hook()
 {
 	return(translate(-10, 0, (void *)0));
 }
 
-int			right_hook(void *param)
+int					right_hook()
 {
 	return(translate(10, 0, (void *)0));
 }
 
-int			top_hook(void *param)
+int					top_hook()
 {
 	return(translate(0, -10, (void *)0));
 }
 
-int			bottom_hook(void *param)
+int					bottom_hook()
 {
 	return(translate(0, 10, (void *)0));
 }

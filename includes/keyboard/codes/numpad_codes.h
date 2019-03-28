@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   numpad_codes.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 20:57:11 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/27 13:56:25 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/28 23:50:29 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 00:35:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/fdf.h"
-
-t_fdf		*p_fdf(int fd)
-{
-	t_fdf	*fdf;
- 
-    if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
-        return (NULL);
-    if ((!(fdf->mlx = mlx_init())) || (!(win_init(fdf, 1000, 1000, "FdF"))) ||
-		(!(map_init(fdf, fd))))
-		exit(0);
-	fdf->draw_map(fdf, white());
-	return (fdf);
-}
+#ifndef	NUMPAD_CODES_H
+#define NUMPAD_CODES_H
+#define	K_NP_CLR	71
+#define K_NP_EQ		81
+#define K_NP_SLH	75
+#define K_NP_ASK	67
+#define	K_NP_MNS	78
+#define K_NP_PLS	69
+#define K_NP_RTN	76
+#define K_NP_DOT	65
+#define K_NP_0		82
+#define K_NP_1		83
+#define K_NP_2		84
+#define K_NP_3		85
+#define K_NP_4		86
+#define K_NP_5		87
+#define K_NP_6		88
+#define K_NP_7		89
+#define K_NP_8		91
+#define K_NP_9		92
+#endif

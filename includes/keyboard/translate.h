@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 20:47:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 22:45:32 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/28 23:27:26 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #include "draw/rgba.h"
 
 int		translate(int x, int y, void *param);
-int		left_hook(void *param);
-int		right_hook(void *param);
-int		top_hook(void *param);
-int		bottom_hook(void *param);
+int		left_hook();
+int		right_hook();
+int		top_hook();
+int		bottom_hook();
 
 #endif

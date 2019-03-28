@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   virtual_codes.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 20:57:11 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/27 13:56:25 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 00:38:19 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 00:40:26 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/fdf.h"
-
-t_fdf		*p_fdf(int fd)
-{
-	t_fdf	*fdf;
- 
-    if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
-        return (NULL);
-    if ((!(fdf->mlx = mlx_init())) || (!(win_init(fdf, 1000, 1000, "FdF"))) ||
-		(!(map_init(fdf, fd))))
-		exit(0);
-	fdf->draw_map(fdf, white());
-	return (fdf);
-}
+#ifndef VIRTUAL_CODES_H
+#define VIRTUAL_CODES_H
+#define	VK_CLS	12
+#endif

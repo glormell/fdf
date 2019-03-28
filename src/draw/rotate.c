@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 18:40:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/19 20:07:51 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/27 15:15:05 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_point3        *rotate_z(t_point3 *p, float angle)
     return (n);
 }
 
-t_point3        *rotate(t_point3 *p, float x, float y, float z)
+t_point3        *rotate(t_point3 *p, t_point3 *r)
 {
-    return (rotate_x(rotate_y(rotate_z(p, z), y), x));
+    return (rotate_x(rotate_y(rotate_z(p, r->z), r->y), r->x));
 }

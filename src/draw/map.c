@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 20:37:12 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 22:00:20 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/27 15:17:38 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/map.h"
 
-t_line				*h_line(int i, int *points, int width)
+t_line				*h_line(int i, int *points, int width, t_point3 *r)
 {
 	t_point3		*start;
 	t_point3		*end;
@@ -22,15 +22,15 @@ t_line				*h_line(int i, int *points, int width)
 
 	x = i % width;
 	y = (i + 1) / width;
-	start = p_point3(x, y, points[i]);
+	start = rotate(p_point3(x, y, points[i]), r);
 	x = (i + 1) % width;
-	end = p_point3(x, y, points[i + 1]);
+	end = rotate(p_point3(x, y, points[i + 1]), r);
 	line = p_line(start, end);
 
 	return (line);
 }
 
-t_line				*v_line(int i, int *points, int width)
+t_line				*v_line(int i, int *points, int width, t_point3 *r)
 {
 	t_line			*line;
 	t_point3		*start;
@@ -40,9 +40,9 @@ t_line				*v_line(int i, int *points, int width)
 
 	x = i % width;
 	y = i / width;
-	start = p_point3(x, y, points[i]);
+	start = rotate(p_point3(x, y, points[i]), r);
 	y = i / width + 1;
-	end = p_point3(x, y, points[i + width]);
+	end = rotate(p_point3(x, y, points[i + width]), r);
 	line = p_line(start, end);
 
 	return (line);
@@ -58,8 +58,10 @@ void			draw_map(void *param, int clr)
 	while (++i < fdf->map->width * fdf->map->height)
     {
         if ((i + 1) % fdf->map->width != 0)
-			draw_line(fdf, h_line(i, fdf->map->points, fdf->map->width), clr);
+			draw_line(fdf, 
+				h_line(i, fdf->map->points, fdf->map->width, fdf->r), clr);
         if (i / fdf->map->width < fdf->map->height - 1)
-			draw_line(fdf, v_line(i, fdf->map->points, fdf->map->width), clr);
+			draw_line(fdf, 
+				v_line(i, fdf->map->points, fdf->map->width, fdf->r), clr);
     }
 }

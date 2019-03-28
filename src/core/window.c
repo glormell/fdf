@@ -6,25 +6,27 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:46:55 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 22:43:50 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/29 00:49:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "core/window.h"
 
 int         key_hook(int key, void *param)
 {
-    if (key == 53 || key == 12)
+	static int	shift = 0;
+
+	
+    if (key == K_ESC || key == VK_CLS)
         close_hook(param);
-	if (key == 123 || key == 4)
-		left_hook((void *)0);
-	if (key == 125 || key == 38)
-		bottom_hook((void *)0);
-	if (key == 126 || key == 40)
-		top_hook((void *)0);
-	if (key == 124 || key == 37)
-		right_hook((void *)0);
+	if (key == K_ARW_L || key == K_H)
+		left_hook();
+	if (key == K_ARW_B || key == K_J)
+		bottom_hook();
+	if (key == K_ARW_T || key == K_K)
+		top_hook();
+	if (key == K_ARW_R || key == K_L)
+		right_hook();
     return (0);
 }
 

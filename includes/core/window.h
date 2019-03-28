@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 23:02:10 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 22:43:36 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/29 00:31:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <mlx.h>
 #include "core/t_fdf.h"
+#include "keyboard/codes/codes.h"
 #include "keyboard/close.h"
 #include "keyboard/translate.h"
 
