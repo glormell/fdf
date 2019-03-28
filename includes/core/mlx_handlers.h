@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   translate.h                                        :+:      :+:    :+:   */
+/*   mlx_handlers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 20:47:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 02:25:05 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 01:50:24 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 01:55:27 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TRANSLATE_H
-#define TRANSLATE_H
-#include <stdlib.h>
+#ifndef MLX_HANDLERS_H
+#define MLX_HANDLERS_H
+#include <mlx.h>
 #include "core/t_fdf.h"
-#include "draw/rgba.h"
+#include "keyboard/codes/codes.h"
+#include "keyboard/close.h"
+#include "keyboard/translate.h"
 
-int		translate(int x, int y, void *param);
-int		left_hook(void *param);
-int		right_hook(void *param);
-int		top_hook(void *param);
-int		bottom_hook(void *param);
+int		key_hook(int key, void *param);
+int		add_mlx_handlers(t_fdf *fdf);
 
 #endif
