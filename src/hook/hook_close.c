@@ -12,9 +12,16 @@
 
 #include "hook/hook_close.h"
 
-int		close_hook(void *param)
+int			close_hook(void *param)
 {
-	(void)param;
+	t_fdf	*fdf;
+
+	fdf = (t_fdf *)param;
+	free(fdf->mlx);
+	free(fdf->win);
+	free(fdf->map->points);
+	free(fdf->map);
+	free(fdf);
 	exit(0);
 	return (0);
 }

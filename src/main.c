@@ -20,6 +20,7 @@ int     main(int argc, char **argv)
 	if ((argc != 2) || ((fd = open(argv[1], O_RDONLY)) == -1) ||
 		!(fdf = p_fdf(fd)))
 		exit(0);
+    mlx_loop_hook(fdf->mlx, fdf->draw_map, fdf);
     mlx_loop(fdf->mlx);
     
     return (0);

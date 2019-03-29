@@ -15,6 +15,6 @@
 #include <math.h>
 #include "map/map_point.h"
 
-t_point3	    *proj(t_point3 *p);
+t_point3	    proj(t_point3 p);
 
 #endif

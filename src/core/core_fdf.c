@@ -21,6 +21,6 @@ t_fdf		*p_fdf(int fd)
     if ((!(fdf->mlx = mlx_init())) || (!(win_init(fdf, 1000, 1000, "FdF"))) ||
 		(!(hook_init(fdf))) || (!(map_init(fdf, fd))))
 		exit(0);
-	fdf->draw_map(fdf, white());
+	//fdf->draw_map(fdf, white());
 	return (fdf);
 }

@@ -15,8 +15,8 @@
 #include <math.h>
 #include "map/map_point.h"
 
-t_point3        *rotate_x(t_point3 *p, float angle);
-t_point3        *rotate_y(t_point3 *p, float angle);
-t_point3        *rotate_z(t_point3 *p, float angle);
-t_point3        *rotate(t_point3 *p, t_point3 *r);
+t_point3        rotate_x(t_point3 p, float angle);
+t_point3        rotate_y(t_point3 p, float angle);
+t_point3        rotate_z(t_point3 p, float angle);
+t_point3        rotate(t_point3 p, t_point3 r);
 #endif

@@ -21,6 +21,6 @@
 #include "draw/draw_rgba.h"
 #include "draw/draw_plot.h"
 
-t_point2	*convert(t_point3 *point, t_point3 *camera, t_point3 *rotate);
-void		draw_line(t_fdf *fdf, t_line *l, int clr);
+t_point2	convert(t_point3 point, t_point3 camera, t_point3 rotate);
+void		draw_line(t_fdf *fdf, t_line l, int clr);
 #endif

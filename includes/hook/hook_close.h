@@ -13,6 +13,7 @@
 #ifndef HOOK_CLOSE_H
 #define HOOK_CLOSE_H
 #include <stdlib.h>
+#include "core/t_fdf.h"
 
 int		close_hook(void *param);
 

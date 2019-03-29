@@ -12,13 +12,13 @@
 
 #include "draw/draw_proj.h"
 
-t_point3	*proj(t_point3 *p)
+t_point3	proj(t_point3 p)
 {
-	t_point3	*n;
+	t_point3	n;
 
-	n = p_point3(
-		p->x,//(p->x - p->y) * cos(1 * M_PI / 180),
-		p->y,//(p->x + p->y) * sin(1 * M_PI / 180) - p->z,
+	n = point3(
+		p.x,//(p->x - p->y) * cos(1 * M_PI / 180),
+		p.y,//(p->x + p->y) * sin(1 * M_PI / 180) - p->z,
 		0
 	);
 

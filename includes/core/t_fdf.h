@@ -20,9 +20,9 @@ typedef struct	s_fdf
 	void		*mlx;
 	void		*win;
 	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
+	t_point3	t;
+	t_point3	r;
+	int			(*draw_map)(void *, int);
 }				t_fdf;
 
 #endif

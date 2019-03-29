@@ -16,4 +16,5 @@
 #include <stdlib.h>
 #include "libft.h"
 #include "core/core_fdf.h"
+#include "draw/draw_rgba.h"
 #endif

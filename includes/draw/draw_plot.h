@@ -19,5 +19,5 @@
 #include "draw/draw_rgba.h"
 #include "core/core_fdf.h"
 
-void	plot(t_fdf *fdf, t_line *l, int clr);
+void	plot(t_fdf *fdf, t_line l, int clr);
 #endif

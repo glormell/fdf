@@ -18,5 +18,5 @@
 #include "draw/draw_rotate.h"
 #include "draw/draw_line.h"
 
-void	draw_map(void *param, int clr);
+int		draw_map(void *param, int clr);
 #endif

@@ -18,11 +18,11 @@ int					rotate_hook(t_point3 p, void *param)
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
-	fdf->draw_map(fdf, clear());
-	fdf->r->x += p.x;
-	fdf->r->y += p.y;
-	fdf->r->z += p.z;
-	fdf->draw_map(fdf, white());
+	//fdf->draw_map(fdf, clear());
+	fdf->r.x += p.x;
+	fdf->r.y += p.y;
+	fdf->r.z += p.z;
+	//fdf->draw_map(fdf, white());
 	return (1);
 }
 

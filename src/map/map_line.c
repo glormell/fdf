@@ -12,7 +12,7 @@
 
 #include "map/map_line.h"
 
-t_line		*p_line(t_point3 *start, t_point3 *end)
+t_line		*p_line(t_point3 start, t_point3 end)
 {
     t_line	*line;
 
@@ -23,7 +23,7 @@ t_line		*p_line(t_point3 *start, t_point3 *end)
     return (line);
 }
 
-t_line      line(t_point3 *start, t_point3 *end)
+t_line      line(t_point3 start, t_point3 end)
 {
     return (t_line){ start, end };
 }

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "input/input_map.h"
 
 int				ft_isspace(char c)
@@ -106,6 +107,7 @@ int				map_init(t_fdf *fdf, const int fd)
 			fdf->map->points = pt_cat(fdf->map->points, points, width, height);
 			fdf->map->height = height;
 		}
+        ft_strdel(&line);
 	}
 	center(fdf);
 	fdf->draw_map = &draw_map;

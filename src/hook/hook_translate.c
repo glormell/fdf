@@ -38,10 +38,10 @@ int					translate_hook(t_point3 p, void *param)
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
-	fdf->draw_map(fdf, clear());
-	fdf->t->x += fdf->map->width * fdf->t->z * p.x;
-	fdf->t->y += fdf->map->height * fdf->t->z * p.y;
-	fdf->t->z += fdf->t->z * p.z;
-	fdf->draw_map(fdf, white());
+	//fdf->draw_map(fdf, clear());
+	fdf->t.x += fdf->map->width * fdf->t.z * p.x;
+	fdf->t.y += fdf->map->height * fdf->t.z * p.y;
+	fdf->t.z += fdf->t.z * p.z;
+	//fdf->draw_map(fdf, white());
 	return (1);
 }
