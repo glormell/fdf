@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.h                                             :+:      :+:    :+:   */
+/*   hook_mouse.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 04:44:32 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 20:49:28 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 20:46:16 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 21:57:36 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOOK_H
-#define HOOK_H
-#include <mlx.h>
-#include "core/t_fdf.h"
-#include "hook/hook_keys.h"
-#include "hook/hook_mouse.h"
+#ifndef HOOK_MOUSE_H
+#define HOOK_MOUSE_H
+#include "map/map_point.h"
+#include "hook/codes/mouse_codes.h"
+#include "hook/hook_translate.h"
+#include "hook/hook_rotate.h"
 
-int		hook_init(t_fdf *fdf);
+int			mouse_press(int button, int x, int y, void *param);
+int			mouse_release(int button, int x, int y, void *param);
+int			mouse_move(int x, int y, void *param);
 
 #endif

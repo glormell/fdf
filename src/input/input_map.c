@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 06:08:41 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/29 18:28:13 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ int				map_init(t_fdf *fdf, const int fd)
 		}
 	}
 	center(fdf);
-	fdf->r = p_point3(0, 0, 0);
 	fdf->draw_map = &draw_map;
 	return (1);
 }
