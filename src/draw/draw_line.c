@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:12:24 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:12:44 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
-#include "map/map_point.h"
-#include "map/map.h"
+#include "draw/draw_line.h"
 
-typedef struct	s_fdf
+void            draw_line(t_fdf *fdf, t_line *l, int clr)
 {
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
+    t_line		*iso_l;
 
-#endif
+	iso_l = p_line(proj(l->s), proj(l->e));
+	iso_l->s->x *= fdf->t->z;
+	iso_l->s->x += fdf->t->x;
+	iso_l->e->x *= fdf->t->z;
+	iso_l->e->x += fdf->t->x;
+	iso_l->s->y *= fdf->t->z;
+	iso_l->s->y += fdf->t->y;
+	iso_l->e->y *= fdf->t->z;
+	iso_l->e->y += fdf->t->y;
+	plot(fdf, iso_l, clr);
+}

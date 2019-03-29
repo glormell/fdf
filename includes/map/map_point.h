@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   map_point.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:08:58 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:09:03 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
-#include "map/map_point.h"
-#include "map/map.h"
+#ifndef MAP_POINT_H
+#define MAP_POINT_H
+#include "libft.h"
 
-typedef struct	s_fdf
+typedef struct	s_point3
 {
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
+	float		x;
+	float		y;
+	float		z;
+}				t_point3;
 
+typedef struct	s_point2
+{
+	float		x;
+	float		y;
+}				t_point2;
+
+t_point3        *p_point3(float x, float y, float z);
+t_point3        point3(float x, float y, float z);
+t_point2        *p_point2(float x, float y);
+t_point2        point2(float x, float y);
 #endif

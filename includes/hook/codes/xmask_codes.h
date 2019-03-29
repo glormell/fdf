@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   xmask_codes.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 02:51:23 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 03:19:29 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
-#include "map/map_point.h"
-#include "map/map.h"
-
-typedef struct	s_fdf
-{
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
-
+#ifndef XMASK_CODES_H
+#define XMASK_CODES_H
+#define XM_KPRESS	(1L << 0)
+#define XM_KRELEASE	(1L << 1)
+#define XM_MPRESS	(1L << 2)
+#define XM_MRELEASE	(1L << 3)
+#define XM_MMOVE	(1L << 6)
+#define XM_WENTER	(1L << 4)
+#define XM_WLEAVE	(1L << 5)
+#define XM_EXPOSE	(1L << 15)
+#define	XM_CLOSE	(1L << 17)
 #endif

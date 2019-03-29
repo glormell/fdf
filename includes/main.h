@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:53:35 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/23 21:13:53 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/29 05:20:54 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "input/map.h"
-#include "core/fdf.h"
+#include "core/core_fdf.h"
 #endif

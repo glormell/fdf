@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   core_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:11:07 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:11:08 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
-#include "map/map_point.h"
-#include "map/map.h"
+#include "core/core_window.h"
 
-typedef struct	s_fdf
+int			win_init(t_fdf *fdf, int width, int height, char *title)
 {
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
-
-#endif
+    if (!(fdf->win = mlx_new_window(fdf->mlx, width, height, title)))
+		return (0);
+	return (1);
+}

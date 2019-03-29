@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   hook_translate.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:03:15 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:03:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
+#ifndef HOOK_TRANSLATE_H
+#define HOOK_TRANSLATE_H
+#include <stdlib.h>
+#include "core/t_fdf.h"
 #include "map/map_point.h"
-#include "map/map.h"
+#include "draw/draw_rgba.h"
 
-typedef struct	s_fdf
-{
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
+int		translate_hook(t_point3 p, void *param);
+int		left_hook(void *param);
+int		right_hook(void *param);
+int		top_hook(void *param);
+int		bottom_hook(void *param);
 
 #endif

@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   draw_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 04:57:00 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 04:57:51 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
+#ifndef DRAW_MAP_H
+#define DRAW_MAP_H
+#include "core/t_fdf.h"
+#include "core/core_fdf.h"
 #include "map/map_point.h"
-#include "map/map.h"
+#include "draw/draw_rotate.h"
+#include "draw/draw_line.h"
 
-typedef struct	s_fdf
-{
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
-
+void	draw_map(void *param, int clr);
 #endif

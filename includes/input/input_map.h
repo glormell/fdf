@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   input_map.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:22:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
+#ifndef INPUT_MAP_H
+#define INPUT_MAP_H
+#include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
+#include "core/t_fdf.h"
+#include "draw/draw_center.h"
+#include "input/get_next_line.h"
 #include "map/map_point.h"
 #include "map/map.h"
+#include "draw/draw_map.h"
 
-typedef struct	s_fdf
-{
-	void		*mlx;
-	void		*win;
-	t_map		*map;
-	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
+int		map_init(t_fdf *fdf, const int fd);
 
 #endif

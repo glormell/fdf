@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_fdf.h                                            :+:      :+:    :+:   */
+/*   draw_center.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:52:55 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/29 05:11:36 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/29 05:11:43 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_FDF_H
-#define T_FDF_H
-#include "map/map_point.h"
-#include "map/map.h"
+#include "draw/draw_center.h"
 
-typedef struct	s_fdf
+t_point3		*center(int w, int h)
 {
-	void		*mlx;
-	void		*win;
-	t_map		*map;
 	t_point3	*t;
-	t_point3	*r;
-	void		(*draw_map)(void *, int);
-}				t_fdf;
+	t_point2	s;
 
-#endif
+	s = point2(1000, 1000);
+
+	t = p_point3(
+		(s.x - (w - 1) * (s.x * 0.8) / (((w > h) ? w : h) - 1)) / 2,
+		(s.y - (h - 1) * (s.y * 0.8) / (((w > h) ? w : h) - 1)) / 2,
+		(s.y * 0.8) / (((w > h) ? w : h) - 1)
+	);
+
+	return (t);
+}
