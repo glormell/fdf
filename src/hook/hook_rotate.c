@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:16:47 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 05:33:53 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/29 06:03:30 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int					rotate_hook(t_point3 p, void *param)
 {
-	t_fdf	*fdf;
+	t_fdf			*fdf;
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
