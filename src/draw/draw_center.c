@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:11:36 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 03:47:48 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 06:50:07 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			center(t_fdf *fdf)
 	t_point3	t;
 	t_point2	s;
 
-	s = point2(1000, 1000);
+	s = point2(1000, 1000, black());
 
 	t = point3(
 		(s.x - (fdf->map->width - 1) * (s.x * 0.8) / (((fdf->map->width > 

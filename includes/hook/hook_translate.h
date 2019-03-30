@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:03:15 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 18:59:53 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 19:21:07 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define HOOK_TRANSLATE_H
 #include <stdlib.h>
 #include "core/t_fdf.h"
+#include "color/color.h"
 #include "map/map_point.h"
-#include "draw/draw_rgba.h"
 
 int		left_hook(void *param);
 int		right_hook(void *param);

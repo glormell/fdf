@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 03:47:05 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 06:03:08 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_fdf
 	t_point3	r;
 	int			changed;
 	void		*clear;
-	int			(*draw_map)(void *, int);
+	int			(*draw_map)(void *, void *);
 }				t_fdf;
 
 #endif

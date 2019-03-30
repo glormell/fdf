@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:19:25 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 05:19:26 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 06:36:44 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_point3     point3(float x, float y, float z)
     return (t_point3){ x, y, z };
 }
 
-t_point2        *p_point2(float x, float y)
+t_point2        *p_point2(float x, float y, t_color c)
 {
     t_point2    *point;
 
@@ -37,10 +37,11 @@ t_point2        *p_point2(float x, float y)
         return (NULL);
     point->x = x;
     point->y = y;
+	point->c = c;
     return (point);
 }
 
-t_point2     point2(float x, float y)
+t_point2     point2(float x, float y, t_color c)
 {
-    return (t_point2){ x, y };
+    return (t_point2){ x, y, c };
 }

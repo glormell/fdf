@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_rgba.h                                        :+:      :+:    :+:   */
+/*   color_palette.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 04:59:10 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 04:59:25 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/30 06:47:01 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/30 19:20:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_RGBA_H
-#define DRAW_RGBA_H
-#include <math.h>
+#ifndef COLOR_PALETTE
+#define COLOR_PALETTE
+#include "color/color_rgb.h"
 
-int     rgba(int red, int green, int blue, float alpha);
-int		white();
-int		clear();
+t_color		black();
+t_color		white();
+
 #endif

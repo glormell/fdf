@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/24 22:53:35 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:23:01 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/30 19:11:10 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/30 19:21:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-#define MAIN_H
-#include <fcntl.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "core/core_fdf.h"
-#include "color/color.h"
+#ifndef COLOR_H
+#define COLOR_H
+#include "color/color_rgb.h"
+#include "color/color_palette.h"
+#include "color/color_gradient.h"
 #endif
