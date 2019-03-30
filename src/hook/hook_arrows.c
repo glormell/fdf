@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 18:42:52 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 19:13:29 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 04:03:18 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int					is_arrow(int key)
 {
-	return (key == K_ARW_L || key == K_H || key == K_ARW_B || key == K_J || 
-			key == K_ARW_T || key == K_K || key == K_ARW_R || key == K_L);
+	return (key == K_ARW_L || key == K_L || key == K_ARW_B || key == K_K || 
+			key == K_ARW_T || key == K_J || key == K_ARW_R || key == K_H);
 }
 
 int					arrow_hook(int key, int shift, void *param)

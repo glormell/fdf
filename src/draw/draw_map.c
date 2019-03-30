@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 18:31:50 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 03:58:51 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,22 @@ int				draw_map(void *param, int clr)
 	t_fdf		*fdf;
 	int 		i;
 
-	clr = white();
 	fdf = (t_fdf *)param;
-	i = -1;
-	while (++i < fdf->map->width * fdf->map->height)
+	if (fdf->changed)
 	{
-		if ((i + 1) % fdf->map->width != 0)
-			draw_line(fdf, 
-				h_line(i, fdf->map->points, fdf->map->width, fdf->r), clr);
-		if (i / fdf->map->width < fdf->map->height - 1)
-			draw_line(fdf, 
-				v_line(i, fdf->map->points, fdf->map->width, fdf->r), clr);
+		fdf->changed = 0;
+		clr = white();
+		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->clear, 0, 0);
+		i = -1;
+		while (++i < fdf->map->width * fdf->map->height)
+		{
+			if ((i + 1) % fdf->map->width != 0)
+				draw_line(fdf, h_line(i, fdf->map->points,
+							fdf->map->width, fdf->r), clr);
+			if (i / fdf->map->width < fdf->map->height - 1)
+				draw_line(fdf, v_line(i, fdf->map->points,
+							fdf->map->width, fdf->r), clr);
+		}
 	}
 	return (0);
 }

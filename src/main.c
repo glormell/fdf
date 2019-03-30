@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 22:19:39 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/27 13:49:58 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/30 03:39:35 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     main(int argc, char **argv)
 		!(fdf = p_fdf(fd)))
 		exit(0);
     mlx_loop_hook(fdf->mlx, fdf->draw_map, fdf);
-    mlx_loop(fdf->mlx);
+	mlx_loop(fdf->mlx);
     
     return (0);
 }
