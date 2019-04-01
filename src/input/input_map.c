@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 18:28:13 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 11:34:10 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ size_t          x_width(char *line)
     return (digit ? width + 1 : width);
 }
 
-int        *pt_lst(char *line, size_t width)
+int				*pt_lst(char *line, size_t width, int *depth)
 {
-    char        *l;
-    int         i;
-    int         *points;
-    char        *z;
-    char        *digit;
+    char		*l;
+    int			i;
+    int			*points;
+    char		*z;
+    char		*digit;
     
     l = line;
     if (!(points = (int *)ft_memalloc(sizeof(int *) * width)))
@@ -59,8 +59,10 @@ int        *pt_lst(char *line, size_t width)
             digit = l++;
         else if ((ft_isspace(*l) || !*l) && digit)
         {
+
             z = ft_strsub(line, digit - line, l++ - digit);
             points[i] = ft_atoi(z);
+			*depth = (points[i] > *depth) ? points[i] : *depth;
             digit = 0;
             i++;
         }
@@ -74,17 +76,17 @@ int        *pt_lst(char *line, size_t width)
     return (points);
 }
 
-int     *pt_cat(int *p1, int *p2, size_t width, size_t height)
+void			pt_cat(int **p1, int **p2, size_t width, size_t height)
 {
     int         *r;
 
     if (!(r = ft_memalloc(sizeof(int) * width * height)))
-        return (NULL);
-
-	ft_memcpy(r, p1, sizeof(int) * width * (height - 1));
-	ft_memcpy(r + width * (height - 1), p2, sizeof(int) * width);
-
-    return (r);
+        return ;
+	ft_memcpy(r, *p1, sizeof(int) * width * (height - 1));
+	ft_memcpy(r + width * (height - 1), *p2, sizeof(int) * width);
+	free(*p1);
+	free(*p2);
+	*p1 = r;
 }
 
 int				map_init(t_fdf *fdf, const int fd)
@@ -92,20 +94,23 @@ int				map_init(t_fdf *fdf, const int fd)
 	char		*line;
 	int			*points;
 	size_t		width;
-	int			height;
+	int			height; // TODO
+	int			depth;
 
     height = 0;
+	depth = 0;
     while (get_next_line(fd, &line))
     {
 		++height;
 		width = x_width(line);
-		points = pt_lst(line, width);
-		if (height == 1 && !(fdf->map = p_map(points, width, height)))
+		points = pt_lst(line, width, &depth);
+		if (height == 1 && !(fdf->map = p_map(points, width, height, depth)))
 			return (0);
 		else if (height > 1)
 		{
-			fdf->map->points = pt_cat(fdf->map->points, points, width, height);
+			pt_cat(&fdf->map->points, &points, width, height);
 			fdf->map->height = height;
+			fdf->map->depth = depth;
 		}
         ft_strdel(&line);
 	}

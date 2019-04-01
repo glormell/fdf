@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 04:57:00 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 06:43:04 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 08:24:32 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include "core/core_clear.h"
 #include "color/t_color.h"
 #include "map/map_point.h"
-#include "draw/draw_rotate.h"
 #include "draw/draw_line.h"
 
-int		draw_map(void *param1, void *param2);
+int		draw_map(t_fdf *fdf);
 #endif

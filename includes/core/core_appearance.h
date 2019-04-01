@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_map.h                                        :+:      :+:    :+:   */
+/*   core_appearance.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 03:53:54 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/01 05:42:53 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/01 07:10:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_MAP_H
-#define INPUT_MAP_H
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
+#ifndef CORE_APPEARANCE_H
+#define CORE_APPEARANCE_H
 #include "core/t_fdf.h"
-#include "input/get_next_line.h"
-#include "map/map_point.h"
-#include "map/map.h"
-#include "draw/draw_center.h"
-#include "draw/draw_map.h"
+#include "core/t_appearance.h"
+#include "color/color.h"
 
-int		map_init(t_fdf *fdf, const int fd);
+t_appearance	appearance(t_color base, t_color positive, t_color negative);
+int				appearance_init(t_fdf *fdf);
 
 #endif

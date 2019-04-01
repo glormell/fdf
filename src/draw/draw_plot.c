@@ -6,38 +6,47 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:01 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:29:17 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 10:07:19 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/draw_plot.h"
 
-void			plot(t_fdf *fdf, t_line l, t_color clr)
+static void	_plot(t_line2c l, t_fdf *fdf)
 {
-	t_point2	delta;
-	t_point2	sign;
-	t_point2	error;
+	t_point2	d;
+	t_point2	s;
+	t_point2c	c;
+	t_point2	e;
 
-	delta = point2(fabs(l.s.x - l.e.x), fabs(l.s.y - l.e.y), black());
-	sign = point2(l.s.x < l.e.x ? 1 : -1, l.s.y < l.e.y ? 1 : -1, black());
-	error = point2(delta.x - delta.y, 0, black());
-	while ((sign.x == 1 && (int)l.s.x < (int)l.e.x) || (sign.x == -1 &&
-			(int)l.s.x > (int)l.e.x) || (sign.y == 1 && 
-			(int)l.s.y < (int)l.e.y) || (sign.y == -1 && 
-			(int)l.s.y > (int)l.e.y))
+	d.x = fabs(l.e.x - l.s.x);
+	d.y = fabs(l.e.y - l.s.y);
+	s.x = l.s.x < l.e.x ? 1 : -1;
+	s.y = l.s.y < l.e.y ? 1 : -1;
+	e.x = d.x - d.y;
+	c = l.s;
+	while (c.x != l.e.x || c.y != l.e.y)
 	{
-		mlx_pixel_put(fdf->mlx, fdf->win, l.s.x, l.s.y, clr.raw);
-		error.y = error.x * 2;
-		if (error.y > -delta.y)
+		//mlx_pixel_put(fdf->mlx, fdf->win, c.x, c.y, line_gradient(l, c, d));
+		c.c = line_gradient(l, c, d);
+		if (c.x >= 0 && c.x <= WIN_WIDTH && c.y >= 0 && c.y <= WIN_HEIGHT)
+			put_pixel(fdf, c);
+		if ((e.y = e.x * 2) > -d.y)
 		{
-			error.x -= delta.y;
-			l.s.x += sign.x;
+			e.x -= d.y;
+			c.x += s.x;
 		}
-		if (error.y < delta.x)
+		if (e.y < d.x)
 		{
-			error.x += delta.x;
-			l.s.y += sign.y;
+			e.x += d.x;
+			c.y += s.y;
 		}
 	}
-	mlx_pixel_put(fdf->mlx, fdf->win, l.e.x, l.e.y, white().raw);
+}
+
+void			plot(t_fdf *fdf, t_line2c l)
+{
+	l.s = point2c((int)l.s.x, (int)l.s.y, l.s.c);
+	l.e = point2c((int)l.e.x, (int)l.e.y, l.e.c);
+	_plot(l, fdf);
 }

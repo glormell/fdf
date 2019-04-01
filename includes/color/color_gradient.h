@@ -6,15 +6,17 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:09:41 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:21:51 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 09:33:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_GRADIENT_H
 #define COLOR_GRADIENT_H
+#include "core/t_appearance.h"
 #include "color/t_color.h"
-#include "color/color_rgb.h"
+#include "color/color_rgba.h"
 
-int			grad(t_point2 s, t_point2 e, t_point2 c, t_point2 d);
+t_color		line_gradient(t_line2c l, t_point2c c, t_point2 d);
+t_color		color_gradient(t_appearance a, double f);
 
 #endif

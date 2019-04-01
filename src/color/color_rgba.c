@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_map.h                                        :+:      :+:    :+:   */
+/*   color_rgba.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 03:53:54 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/01 06:07:09 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/01 06:25:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_MAP_H
-#define INPUT_MAP_H
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "core/t_fdf.h"
-#include "input/get_next_line.h"
-#include "map/map_point.h"
-#include "map/map.h"
-#include "draw/draw_center.h"
-#include "draw/draw_map.h"
+#include "color/color_rgba.h"
 
-int		map_init(t_fdf *fdf, const int fd);
+int			raw_color(unsigned char r, unsigned char g,
+						unsigned char b, unsigned char a)
+{
+	return ((r << 16) + (g << 8) + b);
+}
 
-#endif
+t_color		rgba(unsigned char r, unsigned char g,
+					unsigned char b, unsigned char a)
+{
+    return ((t_color){r, g, b, a, raw_color(r, g, b, a)});
+}

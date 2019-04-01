@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:17 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 04:01:57 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/31 04:41:48 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int					translate_hook(t_point3 p, void *param)
 	fdf->t.x += fdf->map->width * fdf->t.z * p.x;
 	fdf->t.y += fdf->map->height * fdf->t.z * p.y;
 	fdf->t.z += fdf->t.z * p.z;
-	fdf->changed = 1;
+	fdf->canvas.changed = 1;
 	return (1);
 }

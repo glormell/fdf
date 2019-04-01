@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_map.h                                        :+:      :+:    :+:   */
+/*   color_rgba.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 03:53:54 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/01 06:07:49 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/01 06:25:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_MAP_H
-#define INPUT_MAP_H
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "core/t_fdf.h"
-#include "input/get_next_line.h"
+#ifndef COLOR_RGBA_H
+#define COLOR_RGBA_H
+#include <math.h>
+#include "color/t_color.h"
 #include "map/map_point.h"
-#include "map/map.h"
-#include "draw/draw_center.h"
-#include "draw/draw_map.h"
+#include "map/map_line.h"
 
-int		map_init(t_fdf *fdf, const int fd);
+t_color		rgba(unsigned char r, unsigned char g,
+					unsigned char b, unsigned char a);
 
 #endif

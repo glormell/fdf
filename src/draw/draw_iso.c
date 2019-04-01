@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:11:58 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 06:49:29 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/31 05:59:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ t_point2        iso2(t_point3 p, t_point2 origin)
 
     cartesian = point2(
         (p.x - p.z) * cos(0.523599),
-        p.y + (p.x + p.z) * sin(0.523599),
-		white()
-    );
+        p.y + (p.x + p.z) * sin(0.523599)
+	);
 
     flash = point2(
         cartesian.x + origin.x,
-        -cartesian.y + origin.y,
-		white()
+        -cartesian.y + origin.y
     );
 
     return (flash);

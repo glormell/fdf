@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_map.h                                        :+:      :+:    :+:   */
+/*   t_canvas.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 03:53:54 by glormell         ###   ########.fr       */
+/*   Created: 2019/03/31 04:37:31 by glormell          #+#    #+#             */
+/*   Updated: 2019/03/31 04:41:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INPUT_MAP_H
-#define INPUT_MAP_H
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-#include "core/t_fdf.h"
-#include "input/get_next_line.h"
-#include "map/map_point.h"
-#include "map/map.h"
-#include "draw/draw_center.h"
-#include "draw/draw_map.h"
+#ifndef T_CANVAS_H
+#define T_CANVAS_H
 
-int		map_init(t_fdf *fdf, const int fd);
+typedef struct	s_canvas
+{
+	void		*img;
+	int			changed;
+}				t_canvas;
 
 #endif

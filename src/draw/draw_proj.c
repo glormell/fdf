@@ -6,20 +6,20 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:14:09 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 05:14:18 by glormell         ###   ########.fr       */
+/*   Updated: 2019/03/31 06:20:58 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/draw_proj.h"
 
-t_point3	proj(t_point3 p)
+t_point2c		proj(t_point3 p)
 {
-	t_point3	n;
+	t_point2c	n;
 
-	n = point3(
+	n = point2c(
 		p.x,//(p->x - p->y) * cos(1 * M_PI / 180),
 		p.y,//(p->x + p->y) * sin(1 * M_PI / 180) - p->z,
-		0
+		white()
 	);
 
 	return (n);

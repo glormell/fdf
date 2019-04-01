@@ -1,0 +1,50 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_with_lib                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
+#    Updated: 2019/04/01 05:15:24 by glormell         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = fdf
+
+CFILES = src/*.c src/*/*.c
+OFILES = $(CFILES:.c=.o)
+
+LIBPATH = libs/
+
+LFTDIR = libft/
+LFTPATH = $(addprefix $(LIBPATH), $(LFTDIR))
+LFT = libft.a
+FT = ft
+
+LMLXDIR = minilibx/
+LMLXPATH = $(addprefix $(LIBPATH), $(LMLXDIR))
+LMLX = libmlx.a
+MLX = mlx
+
+SRC = $(CFILES)
+OBJS = $(OFILES)
+
+INCLUDE = includes
+LIB = . -lm -lft -lmlx
+
+FRAMEWORKS = -framework OpenGL -framework AppKit
+
+CFLAGS = #-Wall -Wextra -Werror
+
+$(NAME):
+	gcc $(CFLAGS) $(CFILES) -o $(NAME) -I $(INCLUDE) -L $(LIB) $(FRAMEWORKS)
+
+all: $(NAME)
+
+clean:
+
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all

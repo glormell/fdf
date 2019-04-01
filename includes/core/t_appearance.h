@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_rgb.h                                        :+:      :+:    :+:   */
+/*   t_appearance.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 19:19:34 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:28:31 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/01 05:37:14 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/01 07:15:04 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_RGB_H
-#define COLOR_RGB_H
-#include <math.h>
+#ifndef T_APPEARANCE_H
+#define T_APPEARANCE_H
 #include "color/t_color.h"
-#include "map/map_point.h"
-#include "map/map_line.h"
 
-t_color		rgb(unsigned char r, unsigned char g, unsigned char b);
+typedef struct	s_appearance
+{
+	t_color		base;
+	t_color		positive;
+	t_color		negative;
+}				t_appearance;
+
 #endif

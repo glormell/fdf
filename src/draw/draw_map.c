@@ -6,15 +6,15 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:34:57 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 10:03:56 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/draw_map.h"
 
-t_line				h_line(int i, int *points, int width, t_point3 r)
+t_line3				h_line(int i, int *points, int width)
 {
-	t_line			rline;
+	t_line3			rline;
 	t_point3		start;
 	t_point3		end;
 	double			x;
@@ -22,17 +22,17 @@ t_line				h_line(int i, int *points, int width, t_point3 r)
 
 	x = i % width;
 	y = (i + 1) / width;
-	start = rotate(point3(x, y, points[i]), r);
+	start = point3(x, y, points[i]);
 	x = (i + 1) % width;
-	end = rotate(point3(x, y, points[i + 1]), r);
-	rline = line(start, end);
+	end = point3(x, y, points[i + 1]);
+	rline = line3(start, end);
 
 	return (rline);
 }
 
-t_line				v_line(int i, int *points, int width, t_point3 r)
+t_line3				v_line(int i, int *points, int width)
 {
-	t_line			rline;
+	t_line3			rline;
 	t_point3		start;
 	t_point3		end;
 	double			x;
@@ -40,36 +40,33 @@ t_line				v_line(int i, int *points, int width, t_point3 r)
 
 	x = i % width;
 	y = i / width;
-	start = rotate(point3(x, y, points[i]), r);
+	start = point3(x, y, points[i]);
 	y = i / width + 1;
-	end = rotate(point3(x, y, points[i + width]), r);
-	rline = line(start, end);
+	end = point3(x, y, points[i + width]);
+	rline = line3(start, end);
 
 	return (rline);
 }
 
-int				draw_map(void *param1, void *param2)
+int				draw_map(t_fdf *fdf)
 {
-	t_fdf		*fdf;
-	t_color		color;
 	int 		i;
 
-	fdf = (t_fdf *)param1;
-	color = *((t_color *)param2);
-	if (fdf->changed)
+	if (fdf->canvas.changed)
 	{
-		fdf->changed = 0;
-		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->clear, 0, 0);
+		clear_canvas(fdf);
+		fdf->canvas.changed = 0;
 		i = -1;
 		while (++i < fdf->map->width * fdf->map->height)
 		{
 			if ((i + 1) % fdf->map->width != 0)
-				draw_line(fdf, h_line(i, fdf->map->points,
-							fdf->map->width, fdf->r), color);
+				draw_line(fdf, 
+						h_line(i, fdf->map->points, fdf->map->width));
 			if (i / fdf->map->width < fdf->map->height - 1)
-				draw_line(fdf, v_line(i, fdf->map->points,
-							fdf->map->width, fdf->r), color);
+				draw_line(fdf,
+						v_line(i, fdf->map->points, fdf->map->width));
 		}
+		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->canvas.img, 0, 0);
 	}
 	return (0);
 }

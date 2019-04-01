@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:08:58 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 06:42:41 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/01 01:25:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,19 @@ typedef struct	s_point2
 {
 	float		x;
 	float		y;
-	t_color		c;
 }				t_point2;
 
-t_point3        *p_point3(float x, float y, float z);
-t_point3        point3(float x, float y, float z);
-t_point2        *p_point2(float x, float y, t_color c);
-t_point2        point2(float x, float y, t_color c);
+typedef struct	s_point2c
+{
+	float		x;
+	float		y;
+	t_color		c;
+}				t_point2c;
+
+t_point3		*p_point3(float x, float y, float z);
+t_point3		point3(float x, float y, float z);
+t_point2		*p_point2(float x, float y);
+t_point2		point2(float x, float y);
+t_point2c		*p_point2c(float x, float y, t_color c);
+t_point2c		point2c(float x, float y, t_color c);
 #endif
