@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:41:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 22:04:14 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/02 20:44:03 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int			mouse_move(int x, int y, void *param)
 	else if (param == (void *)2)
 		return (right = !right);
 	if (left)
-		translate_hook(point3((x - prev.x) * 0.001, (y - prev.y) * 0.001, 0), 
+		translate_hook(point3((x - prev.x), (y - prev.y), 0), 
 			param);
 	else if (right)
 		rotate_hook(point3(-(y - prev.y) * 0.001, (x - prev.x) * 0.001, 0), 
