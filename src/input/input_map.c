@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/02 22:22:17 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/02 23:30:36 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t          x_width(char *line)
     digit = 0;
     while (*line)
         if (!(ft_isdigit(*line) || ft_isspace(*line) || *line == '-'))
-            perror("Forbidden symbol in map");
+			xerror(1, "Forbidden symbol in map");
         else if (ft_isdigit(*line) && !digit)
             digit = line++;
         else if (ft_isspace(*line) && digit)
@@ -51,7 +51,7 @@ int				*pt_lst(char *line, size_t width, int *depth)
     
     l = line;
     if (!(points = (int *)ft_memalloc(sizeof(int *) * width)))
-        perror("Memory allocation failed");
+        xerror(1, "Memory allocation failed");
     i = 0;
     digit = 0;
     while (*l)
@@ -62,6 +62,7 @@ int				*pt_lst(char *line, size_t width, int *depth)
 
             z = ft_strsub(line, digit - line, l++ - digit);
             points[i] = ft_atoi(z);
+			free(z);
 			*depth = (points[i] > *depth) ? points[i] : *depth;
             digit = 0;
             i++;
@@ -72,6 +73,7 @@ int				*pt_lst(char *line, size_t width, int *depth)
     {
         z = ft_strsub(line, digit - line, l++ - digit);
         points[i] = ft_atoi(z);
+		free(z);
     }
     return (points);
 }

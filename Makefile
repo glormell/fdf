@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/01 14:01:54 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/02 23:25:56 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ src/color/color_rgba.c \
 src/core/core_appearance.c \
 src/core/core_clear.c \
 src/core/core_fdf.c \
+src/core/core_error.c \
 src/core/core_image.c \
 src/core/core_window.c \
 src/draw/draw_center.c \
@@ -76,7 +77,7 @@ all: $(NAME)
 
 $(NAME): $(LFT) $(LMLX) $(OFILES)
 	$(CC) $(COPT) -o $(NAME) $(INCLUDE) $(LIB) $(FRAMEWORKS) $(OFILES)
-	-@echo "Mars is waiting for you, sir."
+	-@echo "\nMars is waiting for you, sir."
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ $(INCLUDES) -c $<
