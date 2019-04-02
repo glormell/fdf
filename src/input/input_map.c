@@ -6,17 +6,12 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/02 23:30:36 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 00:07:33 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 #include "input/input_map.h"
-
-int				ft_isspace(char c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
 
 size_t          x_width(char *line)
 {
@@ -48,31 +43,41 @@ int				*pt_lst(char *line, size_t width, int *depth)
     int			*points;
     char		*z;
     char		*digit;
+	int			m;
     
     l = line;
     if (!(points = (int *)ft_memalloc(sizeof(int *) * width)))
         xerror(1, "Memory allocation failed");
     i = 0;
     digit = 0;
+	m = 0;
     while (*l)
         if (ft_isdigit(*l) && !digit)
+		{
+			m = (m == 1) ? 2 : 0;
             digit = l++;
+		}
+		else if (*l == '-' && !m)
+			m = 1;
         else if ((ft_isspace(*l) || !*l) && digit)
         {
-
+			digit -= (m == 2 ? 1 : 0);
             z = ft_strsub(line, digit - line, l++ - digit);
             points[i] = ft_atoi(z);
+			printf("%d: %s\t%d\n", i, z, points[i]);
 			free(z);
 			*depth = (points[i] > *depth) ? points[i] : *depth;
             digit = 0;
+			m = 0;
             i++;
         }
         else
             ++l;
     if (digit)
     {
-        z = ft_strsub(line, digit - line, l++ - digit);
+        z = ft_strsub(line, digit - line - (m == 2 ? 1 : 0), l++ - digit);
         points[i] = ft_atoi(z);
+		m = 0;
 		free(z);
     }
     return (points);
