@@ -6,11 +6,10 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 00:07:33 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 06:36:47 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "input/input_map.h"
 
 size_t          x_width(char *line)
@@ -36,7 +35,7 @@ size_t          x_width(char *line)
     return (digit ? width + 1 : width);
 }
 
-int				*pt_lst(char *line, size_t width, int *depth)
+int				*pt_lst(char *ln, size_t w, t_range *d)
 {
     char		*l;
     int			i;
@@ -45,28 +44,24 @@ int				*pt_lst(char *line, size_t width, int *depth)
     char		*digit;
 	int			m;
     
-    l = line;
-    if (!(points = (int *)ft_memalloc(sizeof(int *) * width)))
+    l = ln;
+    if (!(points = (int *)ft_memalloc(sizeof(int *) * w)))
         xerror(1, "Memory allocation failed");
     i = 0;
     digit = 0;
 	m = 0;
     while (*l)
         if (ft_isdigit(*l) && !digit)
-		{
-			m = (m == 1) ? 2 : 0;
-            digit = l++;
-		}
+            digit = ((m ? -1 : 0)) + l++;
 		else if (*l == '-' && !m)
 			m = 1;
         else if ((ft_isspace(*l) || !*l) && digit)
         {
-			digit -= (m == 2 ? 1 : 0);
-            z = ft_strsub(line, digit - line, l++ - digit);
+            z = ft_strsub(ln, digit - ln, l++ - digit);
             points[i] = ft_atoi(z);
-			printf("%d: %s\t%d\n", i, z, points[i]);
 			free(z);
-			*depth = (points[i] > *depth) ? points[i] : *depth;
+			*d = range((points[i] < (*d).min) ? points[i] : (*d).min,
+						(points[i] > (*d).max) ? points[i] : (*d).max);
             digit = 0;
 			m = 0;
             i++;
@@ -75,10 +70,12 @@ int				*pt_lst(char *line, size_t width, int *depth)
             ++l;
     if (digit)
     {
-        z = ft_strsub(line, digit - line - (m == 2 ? 1 : 0), l++ - digit);
+        z = ft_strsub(ln, digit - ln, l++ - digit);
         points[i] = ft_atoi(z);
 		m = 0;
 		free(z);
+		*d = range((points[i] < (*d).min) ? points[i] : (*d).min,
+					(points[i] > (*d).max) ? points[i] : (*d).max);
     }
     return (points);
 }
@@ -102,10 +99,10 @@ int				map_init(t_fdf *fdf, const int fd)
 	int			*points;
 	size_t		width;
 	int			height; // TODO
-	int			depth;
+	t_range		depth;
 
     height = 0;
-	depth = 0;
+	depth = range(0, 0);
     while (get_next_line(fd, &line))
     {
 		++height;

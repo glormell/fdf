@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/02 23:25:56 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/03 07:03:41 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ src/core/core_appearance.c \
 src/core/core_clear.c \
 src/core/core_fdf.c \
 src/core/core_error.c \
+src/core/core_range.c \
 src/core/core_image.c \
 src/core/core_window.c \
 src/draw/draw_center.c \
@@ -75,8 +76,8 @@ FRAMEWORKS = -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
-$(NAME): $(LFT) $(LMLX) $(OFILES)
-	$(CC) $(COPT) -o $(NAME) $(INCLUDE) $(LIB) $(FRAMEWORKS) $(OFILES)
+$(NAME): $(LFT) $(LMLX) $(OBJS)
+	$(CC) $(COPT) -o $(NAME) $(INCLUDE) $(LIB) $(FRAMEWORKS) $(OBJS)
 	-@echo "\nMars is waiting for you, sir."
 
 %.o: %.c
@@ -91,10 +92,20 @@ $(LMLX):
 clean:
 	$(MKFT) clean
 	$(MKMLX) clean
-	rm -f $(OFILES)
+	rm -f $(OBJS)
 
 fclean: clean
 	$(MKFT) fclean
 	rm -f $(NAME)
 
 re: fclean all
+
+cleanfast:
+	rm -f $(OBJS)
+
+fcleanfast: cleanfast
+	rm -f $(NAME)
+
+fast: fcleanfast $(OBJS)
+	$(CC) $(OPT) -o $(NAME) $(INCLUDE) $(LIB) $(FRAMEWORKS) $(OBJS)
+	rm -f $(OBJS)

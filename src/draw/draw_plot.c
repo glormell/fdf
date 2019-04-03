@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:01 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 10:07:19 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 08:25:12 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ static void	_plot(t_line2c l, t_fdf *fdf)
 	t_point2c	c;
 	t_point2	e;
 
-	d.x = fabs(l.e.x - l.s.x);
-	d.y = fabs(l.e.y - l.s.y);
-	s.x = l.s.x < l.e.x ? 1 : -1;
-	s.y = l.s.y < l.e.y ? 1 : -1;
+	d = point2(fabs(l.e.x - l.s.x), fabs(l.e.y - l.s.y));
+	s = point2((l.s.x < l.e.x) ? 1 : -1, (l.s.y < l.e.y) ? 1 : -1);
 	e.x = d.x - d.y;
 	c = l.s;
 	while (c.x != l.e.x || c.y != l.e.y)
 	{
-		//mlx_pixel_put(fdf->mlx, fdf->win, c.x, c.y, line_gradient(l, c, d));
 		c.c = line_gradient(l, c, d);
-		if (c.x >= 0 && c.x <= WIN_WIDTH && c.y >= 0 && c.y <= WIN_HEIGHT)
+		if (c.x > 0 && c.x < WIN_WIDTH && c.y > 0 && c.y < WIN_HEIGHT)
 			put_pixel(fdf, c);
 		if ((e.y = e.x * 2) > -d.y)
 		{

@@ -6,14 +6,14 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 04:56:02 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 10:05:04 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 04:25:54 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_PLOT_H
 #define DRAW_PLOT_H
 #include <math.h>
-#include <mlx.h>
+#include "mlx.h"
 #include "constants.h"
 #include "core/t_fdf.h"
 #include "core/core_image.h"

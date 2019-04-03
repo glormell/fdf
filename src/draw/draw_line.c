@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:12:24 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 09:17:42 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 08:22:41 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void            draw_line(t_fdf *fdf, t_line3 l)
 {
-	t_line2c	iso_l;
-	double		factor;
+	t_line2c	c;
+	t_color		g;
 
-	iso_l = line2c(proj(rotate(l.s, fdf->r)), proj(rotate(l.e, fdf->r)));
-	iso_l.s.x *= fdf->t.z;
-	iso_l.s.x += fdf->t.x;
-	iso_l.e.x *= fdf->t.z;
-	iso_l.e.x += fdf->t.x;
-	iso_l.s.y *= fdf->t.z;
-	iso_l.s.y += fdf->t.y;
-	iso_l.e.y *= fdf->t.z;
-	iso_l.e.y += fdf->t.y;
-	factor = (fdf->map->depth) ? (double)l.s.z / fdf->map->depth : 0;
-	iso_l.s.c = color_gradient(fdf->appearance, factor);
-	factor = (fdf->map->depth) ? (double)l.e.z / fdf->map->depth : 0;
-	iso_l.e.c = color_gradient(fdf->appearance, factor);
-	plot(fdf, iso_l);
+	c = line2c(proj(rotate(l.s, fdf->r)), proj(rotate(l.e, fdf->r)));
+	g = color_gradient(fdf->appearance, 0);
+	if ((l.s.z >= 0) && fdf->map->depth.max)
+		g = color_gradient(fdf->appearance, l.s.z / fdf->map->depth.max);
+	else if ((l.s.z < 0) && fdf->map->depth.min)
+		g = color_gradient(fdf->appearance, -(l.s.z / fdf->map->depth.min));
+	c.s = point2c(c.s.x * fdf->t.z + fdf->t.x, c.s.y * fdf->t.z + fdf->t.y, g);
+	g = color_gradient(fdf->appearance, 0);
+	if ((l.s.z >= 0) && fdf->map->depth.max)
+		g = color_gradient(fdf->appearance, l.s.z / fdf->map->depth.max);
+	else if ((l.s.z < 0) && fdf->map->depth.min)
+		g = color_gradient(fdf->appearance, -(l.s.z / fdf->map->depth.min));
+	c.e = point2c(c.e.x * fdf->t.z + fdf->t.x, c.e.y * fdf->t.z + fdf->t.y, g);
+	plot(fdf, c);
 }

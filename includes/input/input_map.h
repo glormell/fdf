@@ -6,16 +6,16 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:04:54 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/02 23:21:29 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 04:29:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INPUT_MAP_H
 #define INPUT_MAP_H
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 #include "core/t_fdf.h"
+#include "core/core_range.h"
 #include "core/core_error.h"
 #include "input/get_next_line.h"
 #include "map/map_point.h"

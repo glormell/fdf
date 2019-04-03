@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 02:48:52 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 08:24:39 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 04:25:43 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_LINE_H
 #define DRAW_LINE_H
-#include <mlx.h>
+#include "mlx.h"
 #include "color/t_color.h"
 #include "color/color.h"
 #include "map/map_point.h"

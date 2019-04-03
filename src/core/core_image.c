@@ -6,10 +6,11 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 02:32:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 10:38:08 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 08:29:00 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "core/core_image.h"
 
 void				put_pixel(t_fdf *fdf, t_point2c p)

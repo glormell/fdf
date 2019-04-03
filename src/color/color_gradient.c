@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:09:18 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 09:36:22 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 08:20:16 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,13 @@ t_color		color_gradient(t_appearance a, double f)
 	t_color	e;
 	t_color	r;
 	
-	if (f == 0)
+	if (!f)
 		return (a.base);
-	if (f == 1)
-		return (a.positive);
-	if (f == -1)
-		return (a.negative);
-
+	else if (f == 1 || f == -1)
+		return ((f > 0) ? a.positive : a.negative);
 	s = (f >= 0) ? a.base : a.negative;
 	e = (f >= 0) ? a.positive : a.base;
+	f = (f < 0) ? f + 1 : f;
 	r = rgba(light(s.r, e.r, f), light(s.g, e.g, f), light(s.b, e.b, f), 255);
 	return (r);
 }

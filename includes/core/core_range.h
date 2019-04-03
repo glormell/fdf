@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_window.h                                      :+:      :+:    :+:   */
+/*   core_range.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 04:50:45 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 04:23:12 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/03 03:37:25 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/03 05:54:21 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CORE_WINDOW_H
-#define CORE_WINDOW_H
-#include "mlx.h"
-#include "core/t_fdf.h"
+#ifndef CORE_RANGE_H
+#define CORE_RANGE_H
+#include "libft.h"
 
-int		win_init(t_fdf *fdf, int width, int height, char *title);
+typedef struct	s_range
+{
+	int			min;
+	int			max;
+}				t_range;
+
+t_range			*p_range(int min, int max);
+t_range			range(int min, int max);
 
 #endif
