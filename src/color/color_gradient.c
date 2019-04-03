@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:09:18 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 08:20:16 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/03 22:33:28 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,13 @@ int			light(int start, int end, double percentage)
 
 t_color		line_gradient(t_line2c l, t_point2c c, t_point2 d)
 {
-	double	percentage;
+	double	pct;
 	t_color	r;
 
-	if (d.x > d.y)
-		percentage = pc(l.s.x, l.e.x, c.x);
-	else
-		percentage = pc(l.s.y, l.e.y, c.y);
-	r = rgba(light(l.s.c.r, l.e.c.r, percentage),
-				light(l.s.c.g, l.e.c.g, percentage),
-				light(l.s.c.b, l.e.c.b, percentage), 255);
+	pct = (d.x > d.y) ? pc(l.s.x, l.e.x, c.x) : pc(l.s.y, l.e.y, c.y);
+	r = rgba(light(l.s.c.r, l.e.c.r, pct),
+				light(l.s.c.g, l.e.c.g, pct),
+				light(l.s.c.b, l.e.c.b, pct), 255);
 	return (r);
 }
 
