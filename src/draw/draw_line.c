@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:12:24 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 22:25:14 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 01:38:24 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void            draw_line(t_fdf *fdf, t_line3 l)
 	t_line2c	c;
 	t_color		g;
 
-	c = line2c(proj(rotate(l.s, fdf->r)), proj(rotate(l.e, fdf->r)));
+	c = line2c(proj(fdf, rotate(fdf, l.s)), proj(fdf, rotate(fdf, l.e)));
 	g = color_gradient(fdf->appearance, 0);
 	if ((l.s.z >= 0) && fdf->map->depth.max)
 		g = color_gradient(fdf->appearance, l.s.z / fdf->map->depth.max);

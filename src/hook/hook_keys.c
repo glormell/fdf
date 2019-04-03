@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:35:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 07:19:51 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 01:56:18 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int				key_press(int key, void *param)
 		shift -= 1;
 	else if (key == K_LSHFT || key == K_RSHFT)
 		shift += 1;
+	else if (key == K_R)
+		repair_hook(param);
 	else if (is_arrow(key))
 		arrow_hook(key, shift, param);
 	else if (is_zoom(key, shift))

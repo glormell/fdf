@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/03 07:03:41 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/04 02:04:46 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ src/hook/hook_mouse.c \
 src/hook/hook_rotate.c \
 src/hook/hook_translate.c \
 src/hook/hook_zoom.c \
+src/hook/hook_repair.c \
 src/input/get_next_line.c \
 src/input/input_map.c \
 src/map/map.c \

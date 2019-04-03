@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 10:03:56 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 01:50:41 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw/draw_map.h"
 
-t_line3				h_line(int i, int *points, int width)
+t_line3				h_line(int i, t_map *map)
 {
 	t_line3			rline;
 	t_point3		start;
@@ -20,17 +20,18 @@ t_line3				h_line(int i, int *points, int width)
 	double			x;
 	double			y;
 
-	x = i % width;
-	y = (i + 1) / width;
-	start = point3(x, y, points[i]);
-	x = (i + 1) % width;
-	end = point3(x, y, points[i + 1]);
+	x = i % map->width;
+	y = (i + 1) / map->width;
+	start = point3(x - (map->width / 2),
+		y - (map->height / 2), map->points[i]);
+	x = (i + 1) % map->width;
+	end = point3(x - (map->width / 2), 
+		y - (map->height / 2), map->points[i + 1]);
 	rline = line3(start, end);
-
 	return (rline);
 }
 
-t_line3				v_line(int i, int *points, int width)
+t_line3				v_line(int i, t_map *map)
 {
 	t_line3			rline;
 	t_point3		start;
@@ -38,13 +39,14 @@ t_line3				v_line(int i, int *points, int width)
 	double			x;
 	double			y;
 
-	x = i % width;
-	y = i / width;
-	start = point3(x, y, points[i]);
-	y = i / width + 1;
-	end = point3(x, y, points[i + width]);
+	x = i % map->width;
+	y = i / map->width;
+	start = point3(x - (map->width / 2),
+		y - (map->height / 2), map->points[i]);
+	y = i / map->width + 1;
+	end = point3(x - (map->width / 2),
+		y - (map->height / 2), map->points[i + map->width]);
 	rline = line3(start, end);
-
 	return (rline);
 }
 
@@ -60,11 +62,9 @@ int				draw_map(t_fdf *fdf)
 		while (++i < fdf->map->width * fdf->map->height)
 		{
 			if ((i + 1) % fdf->map->width != 0)
-				draw_line(fdf, 
-						h_line(i, fdf->map->points, fdf->map->width));
+				draw_line(fdf, h_line(i, fdf->map));
 			if (i / fdf->map->width < fdf->map->height - 1)
-				draw_line(fdf,
-						v_line(i, fdf->map->points, fdf->map->width));
+				draw_line(fdf, v_line(i, fdf->map));
 		}
 		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->canvas.img, 0, 0);
 	}

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_rotate.h                                      :+:      :+:    :+:   */
+/*   hook_repair.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 04:59:44 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 01:10:33 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/04 01:56:30 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/04 02:12:38 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_ROTATE_H
-#define DRAW_ROTATE_H
-#include <math.h>
-#include "core/t_fdf.h"
-#include "map/map_point.h"
+#include "hook/hook_repair.h"
 
-t_point3        rotate_x(t_point3 p, float angle);
-t_point3        rotate_y(t_point3 p, float angle);
-t_point3        rotate_z(t_point3 p, float angle);
-t_point3        rotate(t_fdf *fdf, t_point3 p);
-#endif
+int			repair_hook(void *param)
+{
+	t_fdf	*fdf;
+
+	if (!(fdf = (t_fdf *)param))
+		return (0);
+	center(fdf);
+	return (1);
+}
