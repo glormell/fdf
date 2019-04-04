@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 01:56:30 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 03:00:19 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 19:27:22 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ int			repair_hook(void *param)
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
-	draw_init(fdf);
+	clear_canvas(fdf);
 	return (1);
 }

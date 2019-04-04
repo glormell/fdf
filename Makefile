@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/04 03:00:44 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/04 21:12:24 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,12 @@ src/color/color_gradient.c \
 src/color/color_palette.c \
 src/color/color_rgba.c \
 src/core/core_appearance.c \
-src/core/core_clear.c \
+src/core/core_canvas.c \
 src/core/core_fdf.c \
 src/core/core_error.c \
 src/core/core_range.c \
 src/core/core_image.c \
 src/core/core_window.c \
-src/draw/draw.c \
 src/draw/draw_iso.c \
 src/draw/draw_line.c \
 src/draw/draw_map.c \
@@ -45,6 +44,7 @@ src/hook/hook_translate.c \
 src/hook/hook_zoom.c \
 src/hook/hook_repair.c \
 src/hook/hook_zrotate.c \
+src/hook/hook_zscale.c \
 src/input/get_next_line.c \
 src/input/input_map.c \
 src/map/map.c \

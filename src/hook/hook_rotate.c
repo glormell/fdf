@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:16:47 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 22:57:14 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 18:57:56 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int					rotate_hook(t_point3 p, void *param)
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
-	fdf->r.x += p.x;
-	fdf->r.y += p.y;
-	fdf->r.z += p.z;
+	fdf->canvas.r.x += p.x;
+	fdf->canvas.r.y += p.y;
+	fdf->canvas.r.z += p.z;
 	fdf->canvas.changed = 1;
 	return (1);
 }

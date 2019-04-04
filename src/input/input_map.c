@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 03:00:02 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 20:43:22 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int				map_init(t_fdf *fdf, const int fd)
 	char		*line;
 	int			*points;
 	size_t		width;
-	int			height; // TODO
+	size_t		height;
 	t_range		depth;
 
     height = 0;
@@ -118,7 +118,6 @@ int				map_init(t_fdf *fdf, const int fd)
 		}
         ft_strdel(&line);
 	}
-	draw_init(fdf);
 	fdf->draw_map = &draw_map;
 	return (1);
 }

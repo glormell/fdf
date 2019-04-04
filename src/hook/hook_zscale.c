@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_clear.c                                       :+:      :+:    :+:   */
+/*   hook_zscale.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 03:33:22 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 09:38:30 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/04 20:56:47 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/04 21:54:05 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "core/core_clear.h"
+#include "hook/hook_zscale.h"
 
-int					clear_canvas(t_fdf *fdf)
+int			zscale_hook(float zscale, void *param)
 {
-	char			*canvas_data;
-	int				bits;
-	int				len;
+	t_fdf	*fdf;
 
-	if (!(fdf->canvas.img))
-		fdf->canvas.img = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
-	canvas_data = mlx_get_data_addr(fdf->canvas.img, &bits, &len, &len);
-	len = WIN_WIDTH * WIN_HEIGHT * (bits / 8);
-	while (len--)
-		*(canvas_data++) = 0;
+	if (!(fdf = (t_fdf *)param))
+		return (0);
+	if (fdf->canvas.zscale + zscale >= 1)
+		fdf->canvas.zscale += zscale;
+	fdf->canvas.changed = 1;
 	return (1);
 }
