@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:41:24 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 21:15:30 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 22:01:27 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int					canvas_init(t_fdf *fdf)
 	t_point3		t;
 	t_point2		s;
 
-	clear_canvas(fdf);
 	s = point2(WIN_WIDTH, WIN_HEIGHT);
 	t = point3(
 		(s.x - (fdf->map->width - 1) * (s.x * 0.8) / (((fdf->map->width > 
@@ -50,6 +49,8 @@ int					canvas_init(t_fdf *fdf)
 		: ((float)fdf->map->width / fdf->map->height) * fdf->canvas.h;
 	fdf->canvas.h = (fdf->map->width <= fdf->map->height) ? fdf->canvas.h
 		: ((float)fdf->map->height / fdf->map->width) * fdf->canvas.w;
+	fdf->canvas.zscale = 1;
 	fdf->canvas.changed = 1;
+	clear_canvas(fdf);
 	return (1);
 }
