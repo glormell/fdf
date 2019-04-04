@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 00:07:11 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/29 00:26:43 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 02:41:04 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@
 #define K_BSLH		42
 #define K_OBRC		33
 #define K_CBRC		30
-#define K_LESS		43
-#define K_GRT		47
+#define K_PRD		43
+#define K_DOT		47
 #endif

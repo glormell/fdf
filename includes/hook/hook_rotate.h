@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:02:29 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/30 19:22:22 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 02:58:53 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "core/t_fdf.h"
 #include "color/color.h"
 #include "map/map_point.h"
-#include "draw/draw_center.h"
 
 int		rotate_hook(t_point3 p, void *param);
 int		shift_left_hook(void *param);

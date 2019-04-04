@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_center.c                                      :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:11:36 by glormell          #+#    #+#             */
-/*   Updated: 2019/03/31 06:00:04 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 02:58:22 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw/draw_center.h"
+#include "draw/draw.h"
 
-void			center(t_fdf *fdf)
+void			draw_init(t_fdf *fdf)
 {
 	t_point3	t;
 	t_point2	s;
 
-	s = point2(1000, 1000);
+	s = point2(WIN_WIDTH, WIN_HEIGHT);
 
 	t = point3(
 		(s.x - (fdf->map->width - 1) * (s.x * 0.8) / (((fdf->map->width > 

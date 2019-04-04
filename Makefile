@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/04 02:04:46 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/04 03:00:44 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ src/core/core_error.c \
 src/core/core_range.c \
 src/core/core_image.c \
 src/core/core_window.c \
-src/draw/draw_center.c \
+src/draw/draw.c \
 src/draw/draw_iso.c \
 src/draw/draw_line.c \
 src/draw/draw_map.c \
@@ -44,6 +44,7 @@ src/hook/hook_rotate.c \
 src/hook/hook_translate.c \
 src/hook/hook_zoom.c \
 src/hook/hook_repair.c \
+src/hook/hook_zrotate.c \
 src/input/get_next_line.c \
 src/input/input_map.c \
 src/map/map.c \

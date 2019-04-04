@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:36:17 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 02:05:13 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 02:35:02 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "hook/hook_arrows.h"
 #include "hook/hook_zoom.h"
 #include "hook/hook_repair.h"
+#include "hook/hook_zrotate.h"
 
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);

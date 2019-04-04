@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:35:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 01:56:18 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/04 02:47:21 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int				key_press(int key, void *param)
 		arrow_hook(key, shift, param);
 	else if (is_zoom(key, shift))
 		zoom_hook(key, shift, param);
+	else if ((key == K_PRD || key == K_DOT) && shift)
+		zrotate_hook(key, param);
 	return (0);
 }
 
