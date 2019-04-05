@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/05 13:28:03 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/05 19:08:19 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fdf
 MAKE = make
 CC = gcc
 COPT = 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 
 CFILES = src/color/color_convert.c \
 src/color/color_gradient.c \

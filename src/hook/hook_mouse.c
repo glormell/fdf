@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:41:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 11:47:19 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 18:23:55 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int			mouse_move(int x, int y, void *param)
 		rotate_hook(point3(-(y - prev.y) * 0.001, (x - prev.x) * 0.001, 0),
 			param);
 	prev = (t_point2){ x, y };
+	((t_fdf *)param)->mouse = prev;
 	return (0);
 }

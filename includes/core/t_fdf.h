@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 18:47:20 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 18:20:23 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_fdf
 	t_map			*map;
 	t_canvas		canvas;
 	t_appearance	appearance;
+	t_point2		mouse;
 	int				(*draw_map)(struct s_fdf *);
 }					t_fdf;
 
