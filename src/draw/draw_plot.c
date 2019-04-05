@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:01 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 22:58:05 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 13:17:01 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ static void	_plot(t_line2c l, t_fdf *fdf)
 	c = l.s;
 	while (c.x != l.e.x || c.y != l.e.y)
 	{
-		c.c = line_gradient(l, c, d);
 		if (c.x > 0 && c.x < WIN_WIDTH && c.y > 0 && c.y < WIN_HEIGHT)
+		{
+			c.c = line_gradient(l, c, d);
 			put_pixel(fdf, c);
+		}
 		if ((e.y = e.x * 2) > -d.y)
 		{
 			e.x -= d.y;

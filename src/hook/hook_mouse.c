@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:41:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 18:13:48 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 11:47:19 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int			mouse_press(int button, int x, int y, void *param)
 
 int			mouse_release(int button, int x, int y, void *param)
 {
+	(void)param;
 	if (button == M_LEFT)
 		mouse_move(x, y, (void *)0);
 	else if (button == M_MIDDLE)

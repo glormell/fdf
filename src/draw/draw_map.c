@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 21:21:06 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 13:27:36 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ t_line3				v_line(int i, t_map *map)
 	return (rline);
 }
 
-int				draw_map(t_fdf *fdf)
+void				*_draw_map(void *param)
 {
-	int 		i;
+	unsigned long	i;
+	t_fdf			*fdf;
 
+	fdf = (t_fdf *)param;
 	if (fdf->canvas.changed)
 	{
 		clear_canvas(fdf);
@@ -68,5 +70,11 @@ int				draw_map(t_fdf *fdf)
 		}
 		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->canvas.img, 0, 0);
 	}
+	return (0);
+}
+
+int					draw_map(t_fdf *fdf)
+{
+	_draw_map(fdf);
 	return (0);
 }

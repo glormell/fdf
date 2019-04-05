@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 19:15:48 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 19:12:29 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 11:47:41 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		is_zoom(int key, int shift)
 {
-	return (key == K_MNS || key == K_EQ);
+	return ((key == K_MNS || key == K_EQ) && shift);
 }
 
 int		minus_hook(void *param)
