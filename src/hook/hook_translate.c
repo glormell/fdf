@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:17:17 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 22:39:08 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/05 22:58:35 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int					translate_hook(t_point3 p, void *param)
 	t_fdf			*fdf;
 	t_point2		d;
 	t_point2		m;
-	t_point2		o;
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
@@ -67,25 +66,11 @@ int					translate_hook(t_point3 p, void *param)
 	fdf->canvas.t.y += p.y;
 	d = point2(fdf->canvas.w * p.z, fdf->canvas.h * p.z);
 	m = canvas_mouse(fdf);
-	if (d.x > 0 && ct.z == fdf->canvas.t.z)
-		o.x = 0;
-	if (d.x > 0)
-		o.x = d.x * (m.x / fdf->canvas.w);
-	else if (d.x < 0)
-		o.x = (ct.x - fdf->canvas.t.x) / ((ct.z - fdf->canvas.t.z) /
-			(fdf->canvas.t.z * p.z));
-	if (d.y > 0 && ct.z == fdf->canvas.t.z)
-		o.y = 0;
-	if (d.y > 0)
-		o.y = d.y * (m.y / fdf->canvas.h);
-	else if (d.y < 0)
-		o.y = (ct.y - fdf->canvas.t.y) / ((ct.z - fdf->canvas.t.z) /
-			(fdf->canvas.t.z * p.z));
 	fdf->canvas.t.z += fdf->canvas.t.z * p.z;
 	fdf->canvas.w += d.x;
 	fdf->canvas.h += d.y;
-	fdf->canvas.t.x -= o.x;
-	fdf->canvas.t.y -= o.y;
+	fdf->canvas.t.x -= d.x * (m.x / fdf->canvas.w);
+	fdf->canvas.t.y -=  d.y * (m.y / fdf->canvas.h);
 	fdf->canvas.changed = 1;
 	return (1);
 }
