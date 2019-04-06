@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 06:07:09 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 11:44:46 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 23:29:55 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			raw_color(unsigned char r, unsigned char g,
 }
 
 t_color		rgba(unsigned char r, unsigned char g,
-					unsigned char b, unsigned char a)
+	unsigned char b, unsigned char a)
 {
-    return ((t_color){r, g, b, a, raw_color(r, g, b, a)});
+	return ((t_color){r, g, b, a, raw_color(r, g, b, a)});
 }

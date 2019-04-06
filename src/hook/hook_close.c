@@ -17,7 +17,7 @@ int			close_hook(void *param)
 	t_fdf	*fdf;
 
 	fdf = (t_fdf *)param;
-	mlx_destroy_image(fdf->mlx, fdf->canvas.img);
+	mlx_destroy_image(fdf->mlx, fdf->cvs.img);
 	free(fdf->mlx);
 	free(fdf->win);
 	free(fdf->map->points);

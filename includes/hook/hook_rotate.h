@@ -6,16 +6,16 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:02:29 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 02:58:53 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:16:44 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HOOK_ROTATE_H
-#define HOOK_ROTATE_H
-#include <stdlib.h>
-#include "core/t_fdf.h"
-#include "color/color.h"
-#include "map/map_point.h"
+# define HOOK_ROTATE_H
+# include <stdlib.h>
+# include "core/t_fdf.h"
+# include "color/color.h"
+# include "map/map_point.h"
 
 int		rotate_hook(t_point3 p, void *param);
 int		shift_left_hook(void *param);

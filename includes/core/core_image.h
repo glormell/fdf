@@ -6,16 +6,16 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 02:33:00 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 04:22:40 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:50:02 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CORE_IMAGE_H
-#define CORE_IMAGE_H
-#include "mlx.h"
-#include "constants.h"
-#include "core/t_fdf.h"
-#include "color/color_convert.h"
+# define CORE_IMAGE_H
+# include "mlx.h"
+# include "constants.h"
+# include "core/t_fdf.h"
+# include "color/color_convert.h"
 
 void		put_pixel(t_fdf *fdf, t_point2c p);
 

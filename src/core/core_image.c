@@ -20,9 +20,9 @@ void				put_pixel(t_fdf *fdf, t_point2c p)
 	int				bits;
 	int				pos;
 
-	if (!(fdf->canvas.img))
-		fdf->canvas.img = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
-	canvas_data = mlx_get_data_addr(fdf->canvas.img, &bits, &pos, &pos);
+	if (!(fdf->cvs.img))
+		fdf->cvs.img = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
+	canvas_data = mlx_get_data_addr(fdf->cvs.img, &bits, &pos, &pos);
 	color = mlx_get_color_value(fdf->mlx, convert_color(p.c.raw, pos));
 	pos = WIN_WIDTH * (bits / 8) * (int)p.y + (int)p.x * (bits / 8);
 	*((unsigned int *)(canvas_data + pos)) = color;

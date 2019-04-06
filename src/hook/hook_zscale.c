@@ -18,8 +18,8 @@ int			zscale_hook(float zscale, void *param)
 
 	if (!(fdf = (t_fdf *)param))
 		return (0);
-	if (fdf->canvas.zscale + zscale >= 1)
-		fdf->canvas.zscale += zscale;
-	fdf->canvas.changed = 1;
+	if (fdf->cvs.zscale + zscale >= 1)
+		fdf->cvs.zscale += zscale;
+	fdf->cvs.changed = 1;
 	return (1);
 }

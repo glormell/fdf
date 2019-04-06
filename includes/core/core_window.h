@@ -6,14 +6,14 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 04:50:45 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 04:23:12 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:49:29 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CORE_WINDOW_H
-#define CORE_WINDOW_H
-#include "mlx.h"
-#include "core/t_fdf.h"
+# define CORE_WINDOW_H
+# include "mlx.h"
+# include "core/t_fdf.h"
 
 int		win_init(t_fdf *fdf, int width, int height, char *title);
 

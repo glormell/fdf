@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:09:18 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 22:33:28 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:59:00 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ float		pc(int start, int end, int current)
 
 int			light(int start, int end, double percentage)
 {
-	return((int)((1 - percentage) * start + percentage * end));
+	return ((int)((1 - percentage) * start + percentage * end));
 }
 
 t_color		line_gradient(t_line2c l, t_point2c c, t_point2 d)
@@ -44,7 +44,7 @@ t_color		color_gradient(t_appearance a, double f)
 	t_color	s;
 	t_color	e;
 	t_color	r;
-	
+
 	if (!f)
 		return (a.base);
 	else if (f == 1 || f == -1)

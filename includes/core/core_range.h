@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 03:37:25 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/03 05:54:21 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:50:12 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CORE_RANGE_H
-#define CORE_RANGE_H
-#include "libft.h"
+# define CORE_RANGE_H
+# include "libft.h"
 
 typedef struct	s_range
 {

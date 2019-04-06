@@ -6,14 +6,30 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:41:27 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 18:23:55 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 23:20:48 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "hook/hook_mouse.h"
 
-int			mouse_press(int button, int x, int y, void *param)
+t_point2		canvas_mouse(t_fdf *fdf)
+{
+	t_point2	c;
+
+	c.x = fdf->mouse.x - fdf->cvs.t.x;
+	if (fdf->mouse.x < fdf->cvs.t.x)
+		c.x = 0;
+	if (fdf->mouse.x > fdf->cvs.t.x + fdf->cvs.w)
+		c.x = fdf->cvs.t.x + fdf->cvs.w;
+	c.y = fdf->mouse.y - fdf->cvs.t.y;
+	if (fdf->mouse.y < fdf->cvs.t.y)
+		c.y = 0;
+	if (fdf->mouse.y > fdf->cvs.t.y + fdf->cvs.h)
+		c.y = fdf->cvs.t.y + fdf->cvs.h;
+	return (c);
+}
+
+int				mouse_press(int button, int x, int y, void *param)
 {
 	if (button == M_LEFT)
 		mouse_move(x, y, (void *)0);
@@ -28,7 +44,7 @@ int			mouse_press(int button, int x, int y, void *param)
 	return (0);
 }
 
-int			mouse_release(int button, int x, int y, void *param)
+int				mouse_release(int button, int x, int y, void *param)
 {
 	(void)param;
 	if (button == M_LEFT)
@@ -40,7 +56,7 @@ int			mouse_release(int button, int x, int y, void *param)
 	return (0);
 }
 
-int			mouse_move(int x, int y, void *param)
+int				mouse_move(int x, int y, void *param)
 {
 	static t_point2	prev = (t_point2){ 0, 0 };
 	static int		left = 0;

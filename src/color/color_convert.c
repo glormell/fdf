@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/31 03:27:41 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/01 10:08:06 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:54:40 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int		convert_color(int raw_color, int endian)
 	}
 	else
 		converted_color = raw_color;
-
 	return (converted_color);
 }

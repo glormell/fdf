@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 13:27:36 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 23:16:05 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_line3				h_line(int i, t_map *map)
 	start = point3(x - (map->width / 2),
 		y - (map->height / 2), map->points[i]);
 	x = (i + 1) % map->width;
-	end = point3(x - (map->width / 2), 
+	end = point3(x - (map->width / 2),
 		y - (map->height / 2), map->points[i + 1]);
 	rline = line3(start, end);
 	return (rline);
@@ -50,16 +50,16 @@ t_line3				v_line(int i, t_map *map)
 	return (rline);
 }
 
-void				*_draw_map(void *param)
+void				*draw_map_worker(void *param)
 {
 	unsigned long	i;
 	t_fdf			*fdf;
 
 	fdf = (t_fdf *)param;
-	if (fdf->canvas.changed)
+	if (fdf->cvs.changed)
 	{
 		clear_canvas(fdf);
-		fdf->canvas.changed = 0;
+		fdf->cvs.changed = 0;
 		i = -1;
 		while (++i < fdf->map->width * fdf->map->height)
 		{
@@ -68,13 +68,19 @@ void				*_draw_map(void *param)
 			if (i / fdf->map->width < fdf->map->height - 1)
 				draw_line(fdf, v_line(i, fdf->map));
 		}
-		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->canvas.img, 0, 0);
+		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->cvs.img, 0, 0);
+		mlx_string_put(fdf->mlx, fdf->win, 10, 10,
+			fdf->appearance.positive.raw, fdf->appearance.name);
+		mlx_string_put(fdf->mlx, fdf->win, 10, 25,
+			fdf->appearance.base.raw, "is");
+		mlx_string_put(fdf->mlx, fdf->win, 10, 40,
+			fdf->appearance.negative.raw, "your choise");
 	}
 	return (0);
 }
 
 int					draw_map(t_fdf *fdf)
 {
-	_draw_map(fdf);
+	draw_map_worker(fdf);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:35:43 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/04 21:29:16 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 23:17:49 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int				key_press(int key, void *param)
 {
 	static int	shift = 0;
 
-    if (key == K_ESC || key == K_Q)
-        close_hook(param);
+	if (key == K_ESC || key == K_Q)
+		close_hook(param);
 	else if (key == 1L << 30)
 		shift -= 1;
 	else if (key == K_LSHFT || key == K_RSHFT)
@@ -34,6 +34,8 @@ int				key_press(int key, void *param)
 		zscale_hook(-0.1, param);
 	else if (key == K_Z)
 		zscale_hook(0.1, param);
+	else if (is_appearance(key))
+		appearance_hook(param, key);
 	return (0);
 }
 
@@ -43,4 +45,3 @@ int				key_release(int key, void *param)
 		key_press(1L << 30, param);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:10:42 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 18:27:52 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/06 22:57:42 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 t_fdf		*p_fdf(int fd)
 {
 	t_fdf	*fdf;
- 
-    if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
-        return (NULL);
-    if ((!(fdf->mlx = mlx_init())) ||
+
+	if (!(fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf))))
+		return (0);
+	if ((!(fdf->mlx = mlx_init())) ||
 		(!(win_init(fdf, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))) ||
 		(!(hook_init(fdf))) || (!(map_init(fdf, fd))) ||
 		(!(canvas_init(fdf))) || (!(appearance_init(fdf))))
