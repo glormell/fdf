@@ -6,24 +6,28 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:41:24 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 23:04:07 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 13:35:17 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "core/core_canvas.h"
 
 int					clear_canvas(t_fdf *fdf)
 {
-	char			*canvas_data;
+	int				*canvas_data;
 	int				bits;
 	int				len;
 
 	if (!(fdf->cvs.img))
 		fdf->cvs.img = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
-	canvas_data = mlx_get_data_addr(fdf->cvs.img, &bits, &len, &len);
-	len = WIN_WIDTH * WIN_HEIGHT * (bits / 8);
-	while (len--)
-		*(canvas_data++) = 0;
+	canvas_data = (int *)mlx_get_data_addr(fdf->cvs.img, &bits,
+		&len, &len);
+	len = WIN_WIDTH * WIN_HEIGHT * (bits / 32);
+	while (--len)
+	{
+		canvas_data[len] = fdf->appearance.bg.raw;
+	}
 	return (1);
 }
 

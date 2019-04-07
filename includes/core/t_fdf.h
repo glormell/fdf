@@ -6,14 +6,14 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 19:47:14 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 01:30:33 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 14:00:30 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef T_FDF_H
 # define T_FDF_H
 # include "core/t_canvas.h"
-# include "core/t_appearance.h"
+# include "appearance/t_appearance.h"
 # include "map/map.h"
 
 typedef struct		s_fdf

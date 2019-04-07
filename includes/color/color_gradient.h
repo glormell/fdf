@@ -6,13 +6,13 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:09:41 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 22:51:27 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 14:00:06 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_GRADIENT_H
 # define COLOR_GRADIENT_H
-# include "core/t_appearance.h"
+# include "appearance/t_appearance.h"
 # include "color/t_color.h"
 # include "color/color_rgba.h"
 

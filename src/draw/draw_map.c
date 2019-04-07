@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 23:16:05 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 10:51:21 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void				*draw_map_worker(void *param)
 		mlx_string_put(fdf->mlx, fdf->win, 10, 10,
 			fdf->appearance.positive.raw, fdf->appearance.name);
 		mlx_string_put(fdf->mlx, fdf->win, 10, 25,
-			fdf->appearance.base.raw, "is");
+			fdf->appearance.base.raw, fdf->appearance.fw);
 		mlx_string_put(fdf->mlx, fdf->win, 10, 40,
-			fdf->appearance.negative.raw, "your choise");
+			fdf->appearance.negative.raw, fdf->appearance.sw);
 	}
 	return (0);
 }

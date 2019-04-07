@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:15:33 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/05 13:30:47 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 12:05:16 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int			close_hook(void *param)
 	t_fdf	*fdf;
 
 	fdf = (t_fdf *)param;
+	audio_stop(fdf->appearance.audio);
 	mlx_destroy_image(fdf->mlx, fdf->cvs.img);
 	free(fdf->mlx);
 	free(fdf->win);

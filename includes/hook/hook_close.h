@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:01:21 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 22:17:42 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/07 11:56:03 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include "mlx.h"
 # include "core/t_fdf.h"
+# include "core/core_audio.h"
 
 int		close_hook(void *param);
 
