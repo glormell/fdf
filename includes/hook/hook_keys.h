@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 20:36:17 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 22:17:35 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 06:17:51 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "hook/hook_zrotate.h"
 # include "hook/hook_zscale.h"
 # include "hook/hook_appearance.h"
+# include "hook/hook_audio.h"
+# include "hook/hook_menu.h"
 
 int				key_press(int key, void *param);
 int				key_release(int key, void *param);

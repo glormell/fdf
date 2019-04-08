@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_repair.c                                      :+:      :+:    :+:   */
+/*   hook_menu.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 01:56:30 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/08 04:26:34 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/08 06:12:05 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/08 06:19:22 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hook/hook_repair.h"
+#ifndef HOOK_MENU_H
+# define HOOK_MENU_H
+# include "core/t_fdf.h"
+# include "hook/codes/hook_codes.h"
 
-int			is_repair(int key)
-{
-	return (key == K_R);
-}
+int		is_menu(int key);
+int		menu_hook(void *param);
 
-int			repair_hook(void *param)
-{
-	t_fdf	*fdf;
-
-	if (!(fdf = (t_fdf *)param))
-		return (0);
-	canvas_init(fdf);
-	return (1);
-}
+#endif

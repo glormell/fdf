@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:10:42 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 22:57:42 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 06:11:19 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_fdf		*p_fdf(int fd)
 		(!(hook_init(fdf))) || (!(map_init(fdf, fd))) ||
 		(!(canvas_init(fdf))) || (!(appearance_init(fdf))))
 		exit(0);
+	fdf->menu = 1;
 	fdf->mouse = point2(WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	return (fdf);
 }

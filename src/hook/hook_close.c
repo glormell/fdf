@@ -6,11 +6,16 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:15:33 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 12:05:16 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 04:18:32 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hook/hook_close.h"
+
+int			is_close(int key)
+{
+	return (key == K_ESC || key == K_Q);
+}
 
 int			close_hook(void *param)
 {

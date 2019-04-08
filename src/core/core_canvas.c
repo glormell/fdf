@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:41:24 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 13:35:17 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 06:04:32 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int					canvas_init(t_fdf *fdf)
 	t_point2		s;
 
 	s = point2(WIN_WIDTH, WIN_HEIGHT);
-	t = point3((s.x - (fdf->map->width - 1) * (s.x * 0.8) /
+	t = point3((s.x - (fdf->map->width - 1) * (s.x * CANVAS_WF) /
 		(((fdf->map->width > fdf->map->height) ? fdf->map->width :
 		fdf->map->height) - 1)) / 2, (s.y - (fdf->map->height - 1) *
-		(s.y * 0.8) / (((fdf->map->width > fdf->map->height) ?
-		fdf->map->width : fdf->map->height) - 1)) / 2, (s.y * 0.8) /
+		(s.y * CANVAS_HF) / (((fdf->map->width > fdf->map->height) ?
+		fdf->map->width : fdf->map->height) - 1)) / 2, (s.y * CANVAS_WF) /
 		(((fdf->map->width > fdf->map->height) ? fdf->map->width :
 		fdf->map->height) - 1));
 	fdf->cvs.t = t;

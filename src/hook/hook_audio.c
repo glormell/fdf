@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 11:57:55 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 12:06:53 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 04:07:08 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int			is_audio(int key)
 	return (key == K_P || key == K_S);
 }
 
-void		audio_hook(int key, void *param)
+void		audio_hook(void *param, int key)
 {
 	t_fdf	*fdf;
 

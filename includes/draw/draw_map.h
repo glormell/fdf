@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 04:57:00 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/06 22:46:59 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 06:27:37 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "color/t_color.h"
 # include "map/map_point.h"
 # include "draw/draw_line.h"
+# include "draw/draw_text.h"
 
 int		draw_map(t_fdf *fdf);
 #endif

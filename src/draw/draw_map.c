@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/29 05:13:37 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 10:51:21 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 06:25:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,8 @@ void				*draw_map_worker(void *param)
 				draw_line(fdf, v_line(i, fdf->map));
 		}
 		mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->cvs.img, 0, 0);
-		mlx_string_put(fdf->mlx, fdf->win, 10, 10,
-			fdf->appearance.positive.raw, fdf->appearance.name);
-		mlx_string_put(fdf->mlx, fdf->win, 10, 25,
-			fdf->appearance.base.raw, fdf->appearance.fw);
-		mlx_string_put(fdf->mlx, fdf->win, 10, 40,
-			fdf->appearance.negative.raw, fdf->appearance.sw);
+		put_info(fdf);
+		put_menu(fdf);
 	}
 	return (0);
 }

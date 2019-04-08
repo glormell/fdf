@@ -6,7 +6,7 @@
 #    By: glormell <glormell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 20:08:21 by glormell          #+#    #+#              #
-#    Updated: 2019/04/07 13:57:08 by glormell         ###   ########.fr        #
+#    Updated: 2019/04/08 06:28:29 by glormell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fdf
 MAKE = make
 CC = gcc
 COPT = 
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CFILES = src/color/color_convert.c \
 src/color/color_gradient.c \
@@ -37,6 +37,7 @@ src/draw/draw_map.c \
 src/draw/draw_plot.c \
 src/draw/draw_proj.c \
 src/draw/draw_rotate.c \
+src/draw/draw_text.c \
 src/hook/hook.c \
 src/hook/hook_arrows.c \
 src/hook/hook_close.c \
@@ -50,6 +51,7 @@ src/hook/hook_zrotate.c \
 src/hook/hook_zscale.c \
 src/hook/hook_appearance.c \
 src/hook/hook_audio.c \
+src/hook/hook_menu.c \
 src/input/get_next_line.c \
 src/input/input_lst.c \
 src/input/input_map.c \

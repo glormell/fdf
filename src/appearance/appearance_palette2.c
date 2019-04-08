@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 14:05:08 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 14:05:09 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 05:40:45 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_appearance	german_appearance(void)
 {
 	return ((t_appearance){rgba(221, 0, 0, 255), rgba(0, 0, 0, 255),
 		rgba(255, 206, 0, 255), white(),
-		"Deutchland", "Ub*r", "A***s", "Germany.mp3"});
+		"Deutschland", "Ub*r", "A***s", "Germany.mp3"});
 }
 
 t_appearance	syria_appearance(void)

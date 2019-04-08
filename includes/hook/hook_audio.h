@@ -6,7 +6,7 @@
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 11:57:29 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/07 12:02:51 by glormell         ###   ########.fr       */
+/*   Updated: 2019/04/08 04:07:36 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include "hook/codes/hook_codes.h"
 
 int		is_audio(int key);
-void	audio_hook(int key, void *param);
+void	audio_hook(void *param, int key);
 
 #endif

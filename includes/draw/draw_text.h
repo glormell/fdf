@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook_repair.c                                      :+:      :+:    :+:   */
+/*   draw_text.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glormell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 01:56:30 by glormell          #+#    #+#             */
-/*   Updated: 2019/04/08 04:26:34 by glormell         ###   ########.fr       */
+/*   Created: 2019/04/08 06:26:17 by glormell          #+#    #+#             */
+/*   Updated: 2019/04/08 06:28:58 by glormell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hook/hook_repair.h"
+#ifndef DRAW_TEXT_H
+# define DRAW_TEXT_H
+# include "mlx.h"
+# include "constants.h"
+# include "core/t_fdf.h"
 
-int			is_repair(int key)
-{
-	return (key == K_R);
-}
+void				put_info(t_fdf *fdf);
+void				put_menu(t_fdf *fdf);
 
-int			repair_hook(void *param)
-{
-	t_fdf	*fdf;
-
-	if (!(fdf = (t_fdf *)param))
-		return (0);
-	canvas_init(fdf);
-	return (1);
-}
+#endif
